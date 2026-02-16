@@ -1,0 +1,3755 @@
+CHAPTER 1
+                               INTRODUCTION TO SQL
+     (STRUCTURED QUERY LANGUAGE)
+History of SQL
+1. SQL was introduced by Raymond Francis Boyce and Donald Chamberlin in 1970’s.
+2. In previous days, SQL was known as SEQUEL (SIMPLE ENGLISH QUERY LANGUAGE)
+3. In 1986, ANSI (AMERICAN NATIONAL STANDARD INSTITUTE) changed the name from SEQUEL to SQL due to trademark conflicts.
+
+What is SQL?
+SQL stands for Structured Query Language (or) Sequential Query Language which is used to interact with the Database.
+
+DATA: “Data is a Raw fact which describes the Attributes of an Entity"
+•	Raw fact means Unchangeable data
+•	Attributes means Properties
+•	Entity means Object
+
+Let us understand with an Example: 
+ 
+
+DATABASE: “It is a place or medium which is used to store the data in Systematic and organized manner”.
+
+Why do we have to store data in systematic and organized manner?
+
+EX: LIBRARY
+
+    
+
+
+
+In above example we can see the arrangement of books in the library in two methods. One is in organized manner and another one is in unorganized manner.
+When books are arranged systematically (e.g., by category, author, or title), it becomes easier for readers to locate the books they need. Librarians and visitors can quickly find and return books when there is a structured system in place.
+In an unorganized setup, finding a specific book can be frustrating and time-consuming. An unorganized collection leads to wasted time searching for misplaced books.
+Same way when it comes to database if the data is stored in a systematic way then it will be easy to access the data based on the requirement.
+
+we can perform  basic operations on a database and they are universally  called as CRUD Operations.
+						 	
+ 
+DBMS (Data Base Management System)
+•	It is a software which is used to maintain and manage the database.
+•	It provides security for the database. 
+•	We use query language to communicate or interact with DBMS
+•	DBMS stores the data in the form of files.
+•	Performing CRUD operations is difficult.
+•	Two important features that DBMS provides to database are
+1.	Authentication
+2.	Authorization
+
+
+DBMS
+
+
+
+
+
+
+
+
+RDBMS (Relational Database management system)
+•	It is a software which is used to maintain and manage the database.
+•	It provides security for the database.
+•	We use Structured query language (SQL) to communicate or interact with DBMS
+•	RDBMS stores the data in the form of tables.
+•	Performing CRUD operations is easy.
+•	Two important features that RDBMS provides to database are
+3.	Authentication
+4.	Authorization
+
+
+ 
+
+
+
+
+
+
+
+
+What’s Authentication and Authorisation?		
+AUTHENTICATION: This is the process of verifying a user's identity. It ensures that the person (or system) trying to access a resource is who they claim to be. Common authentication methods include:
+•	Passwords
+•	One-Time Pins (OTP)
+•	Biometrics (fingerprint, facial recognition)
+•	Multi-Factor Authentication (MFA)
+AUTHORISATION:  This determines what an authenticated user is allowed to do. Once a user is authenticated, authorization controls what resources they can access and what actions they can perform.
+                                                                                                                                                                                 
+
+ 	NOTE:
+1.	DBMS understand only query language.
+2.	RDBMS understand only structured query language.
+3.	SQL is not case sensitive language.
+
+                Difference between DBMS and RDBMS
+	DBMS	RDBMS
+1	 DBMS stores data in file format	RDBMS stores data in Table
+Format
+2	We use query language to communicate with database	We use Structured query
+language to	communicate with database
+3	It provides 2 main features
+1.Authentication
+2.Authorization	It provides 2 main features
+1.Authentication
+2.Authorization
+4	Compare to RDBMS performing
+CRUD operation is Difficult	It is easy to perform CRUD
+Operation
+5	Accessing the data is Difficult	Accessing the data is Easier.
+
+RELATIONAL MODEL:
+It’s a database model which organises the data in the form of tables.
+•	Relational Model was designed by E.F CODD (Edgar Frank Codd)
+•	In Relational Model we can store the data in the form of tables.
+•	Any DBMS which follows Relational Model becomes RDBMS.
+•	Any DBMS which follows E.F Codd rules becomes RDBMS
+
+	                	
+
+TABLE: “Combination of rows and column is known as Table”.
+				
+				
+		
+	
+				
+
+
+
+
+
+
+
+
+•	CELL: it’s an intersection of rows and columns.
+•	ROWS: It is used to represent the properties of single Entity.
+•	COLUMNS: It is used to represent the properties of all Entity.
+
+RULES OF E.F CODD:
+1. The data entered into a cell must be a SINGLE VALUED DATA.
+ Example:  EMP
+EID	ENAME	PH_NO
+1	ROY	9876543222
+2	JACK	8765432198,789654321
+3	LEO	8976543212
+
+
+EID	ENAME	PH_NO	ALT_PHNO
+1	ROY	9876543222	
+2	JACK	8765432198	789654321
+3	LEO	8976543212	
+   EMP
+
+
+
+
+
+2. In RDBMS, we can store everything in the form of tables, including     metadata.
+•	Metadata: The details of a data is known as Metadata.
+•	Everything means Char, number, photos, videos, Audios, etc.
+Example:   EMP
+EID	ENAME	GENDER	PHOTOS
+1	Naveen	Male	 
+2	Saketh	Male	 
+3	Rahul	Male	 
+
+
+
+
+
+
+•	Meta data is generated automatically.
+•	The Meta data of the photo will be stored in a table called Meta table.
+•	This Meta table is implicitly created by the Compiler.
+
+		                     META TABLE
+Image name	      Date & time	Size	Format
+  IMG20250404091115	     04/04/2025 0:11:15AM	2.4mb	        jpg
+  IMG20250404091116	       04/04/2025 0:11:18AM	1.8mb	jpg
+
+     
+
+
+
+
+
+
+
+
+3.According to E.F CODD we can store the data in Multiple Tables, if needed we can establish a connection between the tables with the Help of KeyAttributes.
+
+Key attributes	1.primary key
+	2.Foriegn Key
+4.Data entered into a table must be validated in 2steps
+     By assigning    1. Data types
+    2.Constraints
+NOTE: Data types are MANDATORY whereas constraints are OPTIONAL.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              CHAPTER 2	
+                                    DATA TYPES
+DATATYPES:  It is used to specify or determine the type of data that
+                             will be stored in a particular memory location.
+Types of Data types in SQL:
+1.	Char
+2.	Varchar/varchar2
+3.	Date
+4.	Number
+5.	Large Object
+i.	Character Large Object (CLOB).
+ii.	Binary Large Object (BLOB).
+
+1.CHAR
+•	In Char data type we can store alphabets ('A-Z', 'a-z') numbers ('0-9'), alpha-numeric [combination of alphabets and numbers] (a1b2) and Special Characters ( $  & , @ , ! … ).
+•	Characters must always be enclosed within single quotes (' ').
+•	Whenever we use char data type, we must mention size.
+	Syntax: Char (size)
+•	Maximum number of characters can be stored up to 2000 characters
+•	Char follows “Fixed length memory allocation”.
+
+  Example: Char (10)
+   I want to enter the name of RAHUL
+R	A	H	U	L					
+			
+
+                               Used memory	         Unused memory 
+	      (MEMORY WASTED
+•	Here based on size given the memory unit will give the memory blocks
+•	Unused memory will get wasted means we cannot use it for further operations also the unused memory will not go back to memory unit.
+•	The unused/unallocated memory blocks will be filled with space (      ), space occupies memory so that memory cannot be used for further operations hence memory is wasted.
+•	So, whenever the length of the data is fixed then we can use this 
+Char data type
+•	PAN number
+•	AADHAR number
+•	PHONE number
+
+2.VARCHAR: 
+•	In Varchar data type we can store alphabets ('A-Z', 'a-z') numbers ('0-9'), alpha-numeric [combination of alphabets and numbers] (a1b2) and Special Characters ( $  & , @ , ! … ).
+•	Characters must always be enclosed within single quotes (' ').
+•	Whenever we use varchar data type, we must mention size.
+	Syntax: Varchar (size)
+•	Maximum number of characters can be stored up to 2000 characters
+•	VarChar follows “Variable length memory allocation”.
+
+      Example: Varchar (10)
+       I want to enter the name of (Nandan)
+N	A	N	D	A	N				
+      		Used memory	                              Unused memory
+
+
+
+•	Here based on size given the memory unit will give the memory blocks
+•	Unused memory will not get wasted means we can use it for further operations also the unused memory will go back to memory unit.
+•	The unused/unallocated memory blocks will be filled with null (null is neither space nor a value it’s just Empty), null doesn’t occupy memory so that memory can be used for further operations hence memory is not wasted.
+•	So, whenever the length of the data is not fixed then we can use this 
+Varchar data type
+•	USERNAME
+•	PASSWORD
+•	EMAIL-ID
+
+     VARCHAR2:
+•	It is an updated version of varchar.
+Syntax: Varchar2 (size)
+•	Maximum number of characters can be stored up to 4000 characters.
+
+NOTE:
+If you are assigning varchar data type to the column. By default Compiler will take it is as Varchar2.
+
+3.DATE: It is used to store dates in a particular/specified format.
+•	It is used to store dates in a particular/specified format provided by ORACLE 
+•	Dates should be written within single quotes( ‘ ‘ )
+
+Format to write date is:
+‘DD-MON-YY’ 	 	 ‘01-JAN-25’
+‘DD-MON-YYYY’  		  ’01-JAN-2025’
+
+
+
+4.NUMBER: It is used to store the numeric values.
+SYNTAX: NUMBER (Precision, [Scale])
+
+PRECISION:
+•	It represents integer values.
+•	It is Mandatory.
+•	Its range varies from 1to 38.
+•	No default value.
+
+SCALE:	
+•	It represents decimal values.
+•	It is Optional.	     
+•	Its range varies from -84 to127.
+•	The default value of scale is 0.
+
+   EX:
+1.	Number (3) =	+/-	 9 	 9   9 
+2.	Number (5,0) =	+/-	 9 	9	9	9	9
+
+3.	Number (5, 2) =	+/-	9	       
+9	9 . 9	9
+4.	Number (7,3) =	+/-	 
+ 9 	 	 	   
+9   9	 9  .  9    9   9 
+5.	Number (4,4) =	+/-	.  9 	 9 	 9 	 9 
+6.	Number (2,7) =	+/-	.  0 	 0   0   0   0    9   9 
+
+
+5.LARGE OBJECT(LOB)
+
+1.	CHARACTER LARGE OBJECT(CLOB)
+ It is used to store huge number of characters. 
+i.e., up to 4GB size.
+
+2.	BINARY LARGE OBJECT(BLOB)
+It is used to store the binary values of Audios, Videos, Images, etc.
+i.e., up to 4GB size.
+					CHAPTER – 3
+				     CONSTRAINTS
+WHY DO WE HAVE TO LEARN ABOUT CONSTRAINTS?
+In the below given table while inserting data to each and every column it will accept all types of values like negative as well as positive. While inserting values into ph_no column it’ll accept positive & negative numbers. To validate these conflicts, we’ll be using the Constraints.
+
+   EID
+ 
+  Number (5)	
+ ENAME
+
+   Varchar (25)	   
+     SAL
+
+    Number (7,2)	  
+   PH_NO
+
+Number (10)
+
+  - 33 ❌	
+    Null ❌	
+     11000	
+78899990011 ❌
+ 
+1	
+ Smith	
+-2000.11 ❌	
+987654 ❌
+
+21	
+  Allen	
+6000.00	      
+    -8976543210 ❌
+
+12345	
+Null ❌	
+4999	      
+     9876543211
+
+-56789 ❌	
+King	
+800000 ❌	    
+      9898009900
+
+CONSTRAINTS: “Constraints are the rules given to column to validate the data”       
+TYPES OF CONSTRAINTs: -
+1.	UNIQUE
+2.	NOT NULL
+3.	CHECK
+4.	PRIMARY KEY
+5.	FOREIGN KEY
+
+1.UNIQUE: “It is a constraint which is used to avoid duplicate values into    
+                        a column”.
+             EID
+      NUMBER (3)
+    1         ✔
+           2         ✔
+           3         ✔
+           3         ✖
+           4         ✔
+           4         ✖
+EID   
+   NUMBER (3)
+UNIQUE
+1        ✔
+2         ✔
+3        ✔
+4        ✔
+5        ✔
+6        ✔
+EXAMPLE:
+		
+
+		
+
+
+
+
+
+
+
+
+
+
+2.NOT NULL: “It is a constraint which is used to avoid the null into the   
+                         column”.         
+        ENAME
+   VARCHAR (25)
+      NOT NULL
+Smith
+NULL ✖
+Scott
+NULL ✖
+Adams
+NULL ✖
+
+        ENAME
+  VARCHAR (25)
+Smith
+NULL
+Scott
+NULL
+Adams
+NULL
+EXAMPLE:
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+3.CHECK: “It is a constraint which is used along with the condition if the condition is satisfied it will accept the values else it will reject the values.”
+
+EXAMPLE:
+PH_NO
+NUMBER (10)
+
+
+9878987688         ✔
+99889                  ✖
+-9898007865          ✖
+876543210098       ✖
+8989090966           ✔
+						   
+PH_NO
+NUMBER (10)
+                   UNIQUE
+CHECK(PH_NO>0)
+CHECK(LENGTH(PH_NO)=10)
+
+
+9878987688         ✔
+8989090966           ✔
+
+
+	
+
+
+NOTE: - Check constraint can be applied only for numeric columns.
+
+4.PRIMARY KEY: “It is a constraint which is used to identify the 
+                                  records uniquely from the table”.
+Characteristics:
+1.It will not accept duplicate/repeated/same values.
+2.It will not accept Null values.
+3.It is a combination of Unique and Not null constraints.
+4.we can have only One Primary Key in a table.
+
+5.FOREIGN KEY: “It is a constraint which is used to establish the 
+	                                   connection between the table”.
+Characteristics:
+1.It will accept duplicate/repeated/same values.
+2.It will accept Null values.
+3.It is not a combination of Unique and Not null constraints.
+4.we can have more than one Foreign Key in a table.
+5.For an attribute to become a Foreign Key it must be a Primary Key in its own 
+   table.
+ 6.It is also known as “REFRENTIAL INTEGRITY CONSTRAINT”.
+
+
+
+HOW CAN WE ESTABLISH THE CONNECTION B/W THE TABLES? LET’S SEE!
+
+EXAMPLE:	 	      DEPT 
+
+                DNO Number(3)
+Primary key	            DNAME
+      VARCHAR (25)
+          Not null unique	                  LOC
+         VARCHAR (25) unique not null
+10	RESEARCH	NEW YORK
+20	SALES	BOSTON
+30	OPEARTIONS	CHICAGO
+40
+ACCOUNTING	DALLAS
+
+	
+
+     EID 
+
+NUMBER(3)
+Primary key 
+CHECK(EID>0)	
+     ENAME
+
+      VARCHAR(25)
+
+     NOT NULL
+	
+           SAL
+
+NUMBER(6,2)
+
+    CHECK
+   (SAL>0)	 
+                PH_NO
+
+               NUMBER(10)
+                  
+                 UNIQUE
+      
+               NOT NULL
+
+         CHECK(PH_NO>0)
+ 
+ CHECK(LENGTH(PH_NO)=10)
+	
+    DNO
+
+ NUMBER(5)
+
+  FOREIGN     
+      KEY
+1	SMITH	2000.35	987654321O	10
+2	ALLEN	3500.55	8765432100	30
+3	WARD	4500.65	8765434456	40
+4	SCOTT	2500.55	7900987890	NULL
+5	JONES	1800.45	9090808077	20
+6	ADAMS	2200.25	7654321009	10
+		
+                                                      EMP
+
+
+NOTE:
+•	A table which consisting of a Foreign key is known as CHILD/SLAVE TABLE (or) A table which is having the reference of another table is called as CHILD/SLAVE TABLE.
+•	A table which consisting of a Primary key is known as Parent/Master table (or) A table which is referring a column to another table is called as PARENT/MASTER table.
+
+1.WRITE THE DIFFERENCE BETWEEN CHAR & VARCHAR
+2. WRITE THE DIFFERENCE BETWEEN VARCHAR & VARCHAR 2
+3. WRITE THE DIFFERENCE BETWEEN PRIMARY KEY &  
+    FOREIGN KEY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	       	            CHAPTER – 4
+                       OVERVIEW OF SQL STATEMENTS
+
+We have 5 types of SQL Statement:
+1.	DATA DEFINITION LANGUAGE                 (DDL)
+2.	DATA MANIPULATION LANGUAGE         (DML)
+3.	TRANSACTION CONTROL LANGUAGE   (TCL)
+4.	DATA CONTROL LANGUAGE                      (DCL)
+5.	DATA QUERY LANGUAGE                           (DQL)
+
+  DATA DEFINATION LANGUAGE (DDL): 
+“It is used to create our own table in the database & deals with the structure of the table.
+  DATA MANIPULATION LANGUAGE (DML): 
+“It is used to manipulate the table by inserting, deleting and updating the data.”
+   TRASACTION CONTROL LANGUAGE (TCL): 
+“It is used control the transaction done on the table.”
+Transaction: The DML operation performed on a table is known as transaction.
+    DATA CONTROL LANGUAGE (DCL): 
+“It is used to control the data flow between the user.”
+   DATA QUERY LANGUAGE (DQL): 
+“It is used to retrieve the data from the database.”
+
+
+
+
+
+
+
+      CHAPTER -5                                   
+                 DATA QUERY LANGUAGE (DQL)                                                                  
+DATA QUERY LANGUAGE (DQL):                                                              “It is used to retrieve the data from the database.”
+We have 4 statements in DQL: 
+1.	SELECT
+2.	PROJECTION
+3.	SELECTION
+4.	JOINS
+
+1.SELECT: “It is used to retrieve the data from the table and
+  display it on output screen.”
+
+2.PROJECTION: “It is used to retrieve the data from the table
+by selecting only the column.”
+
+3.SELECTION: “It is used to retrieve the data from the table by
+selecting rows as well as columns.”
+
+4.JOINS: “It is used to retrieve the data from multiple table
+simultaneously.”
+
+
+
+
+
+
+
+
+
+1.PROJECTION: “It is used to retrieve the data from the table
+by selecting only the column.”
+
+
+
+
+ORDER OF EXECUTION:
+ 1. FROM 
+ 2. SELECT
+1.COLUMN
+Q. WRITE A QUERY TO DISPLAY THE NAME OF EMPLOYEES. 
+      SELECT ENAME
+       FROM EMP;   	
+
+
+										                   
+     					
+   O/P OF SELECT                                                            EMP
+EID	ENAME	SAL	DEPTNO
+1	SMITH	2000	20
+2	ALLEN	2500	10
+3	WARD	1800	20
+4	MILLER	3000	30
+5	JONES	4000	10
+6	SCOTT	2000	30
+7	TURNER	1000	10
+ENAME
+
+SMITH
+ALLEN
+WARD
+MILLER
+JONES
+SCOTT
+TURNER
+
+2.DISTINCT	
+“It is a keyword which is used to remove the duplicate/repeated/same values/records from the result table”	
+
+
+
+Characteristics:
+1.Distinct clause has to be written as a first argument in select clause.
+2.Column name should be written after distinct clause in select clause.
+3.We can pass multiple column name as an argument to the distinct  
+   keyword and it will remove the combination of column in which  
+   values are repeated.
+
+Q. WRITE A QUERY TO DISPLAY DIFFERENT SALARIES OF EMPLOYEES.
+         SELECT DISTINCT SAL
+         FROM EMP;  
+
+
+									
+
+		        		         					       EMP
+EID	ENAME	SAL	DEPTNO
+1	SMITH	2000	20
+2	ALLEN	2500	10
+3	WARD	1800	20
+4	MILLER	3000	30
+5	JONES	4000	10
+6	SCOTT	2000	30
+7	TURNER	1000	10
+SAL
+2000
+2500
+1800
+3000
+4000
+2000
+1000
+ DISTINCT SAL
+2000
+
+2500
+1800
+3000
+4000
+1000
+
+3.EXPRESSION: “Any statement which gives result is known as expression.”
+						(or)
+                        “It’s a combination of operand and operator.”
+EX:   10 * 2 = 20
+
+              Operator	
+Operand     
+OPERATOR: Operator are the symbols which is used to perform specific task.
+OPERAND:  The value which user will pass.
+
+WHEN DO WE HAVE TO USE EXPRESSION?
+
+Q. WAQTD ANNUAL SALARY OF THE EMPLOYEES.
+                SELECT SAL*12 
+   FROM EMP;
+
+Q. WAQTD DEDUCTION OF 200 FROM THE SALARY. 
+     SELECT SAL-200
+      FROM EMP;
+
+Q. WAQTD BOTH SALARY AND ANNUAL SALARY.
+ 	      SELECT SAL, SAL*12 
+      FROM EMP;
+
+Q. WADTD DETAILS OF THE EMPLOYEE ALONG WITH ANNUAL SALARY
+SELECT EMP.* ,  SAL* 12 
+FROM EMP;
+Q. WAQTD NAME AND SALARY WITH THE HIKE OF 10% FOR ALL  THE EMPLOYEES
+		SELECT ENAME, SAL+(SAL*0.01)
+		FROM EMP;
+
+4.ALIAS: “It is used to give alternate name to a column or an expression.”
+We can use alias with /without using a keyword called ‘AS’.
+In order to give space: (‘_’)    underscore,     (“ ”)double quotes.
+
+EX:   Q. WAQTD ANNUAL SALARY OF THE EMPLOYEES.
+                    SELECT SAL*12  ANNUAL_SAL
+      FROM EMP;
+
+
+
+
+
+
+	                   		CHAPTER -6
+				       SELECTION
+SELECTION: “It is a process of retrieving the data from the table  
+	              by selecting rows as well as columns.”
+
+		
+
+
+
+ORDER OF EXECUTION:
+1.	FROM
+2.	WHERE
+3.	SELECT
+
+WHERE CLAUSE: “It is used to filter the records from the table.”
+Characteristics:
+1.	Where clause executes in row by row.
+2.	Where clause executes after the execution of FROM clause.
+3.	We can write filter condition in where clause.
+4.	We can pass multiple conditions in where clause with the help of logical operators.
+
+Q. WAQTD NAME OF THE EMPLOYEE WHO IS EARNING SALARY
+      2000.
+     			SELECT ENAME 
+     			 FROM EMP
+     		           WHERE SAL = 2000;
+EID	ENAME	SAL	DEPTNO
+1	SMITH	2000	20
+2	ALLEN	2500	10
+3	WARD	1800	20
+4	MILLER	3000	30
+5	JONES	4000	10
+6	SCOTT	2000	30
+7	TURNER	1000	10
+                   SAL			
+ENAME
+SMITH
+SCOTT
+      2000=2000   ✔
+     2500=2000  ✖
+    1800=2000  ✖
+    3000=2000  ✖
+    4000=2000  ✖
+    2000=2000  ✔
+            1000=2000  ✖
+Q. WAQTD JOB OF THE EMPLOYEE WHOSE NAME IS KING
+		SELECT JOB
+		FROM EMP
+		WHERE ENAME = ‘KING’;
+
+Q. WAQTD DETAILS OF THE EMPLOYEE WHO IS WORKING AS   
+     CLERK
+		SELECT * 
+		FROM EMP
+		WHERE JOB=’CLERK’;
+
+Q. WAQTD HIREDATE & COMM OF THE EMPLOYEES WHO IS  
+     EARNING MORE THAN 3000
+		SELECT HIREDATE, COMM
+		 FROM EMP
+		 WHERE SAL > 3000;
+
+Q. WAQTD DETAILS OF THE EMPLOYEE WHO ARE HIRED   
+      BEFORE 18-AUG-1980
+		 SELECT *
+		 FROM EMP
+		 WHERE HIREDATE < ’18-AUG-1980’;	
+
+Q. WAQTD DETAILS OF THE EMPLOYEE ALONG WITH THE      
+     ANNUAL SALARY WHOSE ANNUAL SAL IS MORE THAN 5000
+		 SELECT EMP.*, SAL*12 ANNUAL_SAL
+		  FROM EMP
+		  WHERE SAL*12 > 5000;
+
+
+
+
+
+
+					CHAPTER - 7
+        OPERATORs
+
+OPERATORS: “These are the Symbols which is used to perform 
+        specific task.”
+Types of Operators:
+1.Arithmetic Operator			(+, -, *, /)
+2.Comparision Operator			(=, !=)
+3.Relational Operator			(>, <, >=, <=)
+4.Concatenation Operator		(||)
+5.Logical Operator				
+•	AND
+•	OR
+•	NOT
+6.Special Operator			
+•	IN
+•	NOT IN
+•	BETWEEN
+•	NOT BETWEEN
+•	IS
+•	IS NOT
+•	LIKE
+•	NOT LIKE
+7.Subquery Operator			
+•	ANY
+•	ALL
+•	EXISTS
+•	NOT EXISTS
+8.Set Operator
+•	UNION
+•	UNION ALL
+•	INTERSECT
+•	MINUS
+
+
+
+1.Arithmetic Operator: “It is used to perform the arithmetic 
+Operations like Addition, Subtraction, Multiplication & Division.”
+Q. WAQTD THE SAL OF EMPLOYEES AFTER THEY GOT 1000 AS 
+       INCREMENT.
+			SELECT SAL+1000 AS INC_SAL
+			FROM EMP;
+Q. WAQTD THE SAL OF EMPLOYEES AFTER DEDUCTING 500 FROM 
+     THEIR SALARY.
+			SELECT SAL-500 AS SAL_DEDUCT
+			FROM EMP;
+Q. WAQTD THE ANNUAL SALARY OF THE EMPLOYEES
+			SELECT SAL*12 AS ANNUAL_SAL
+			FROM EMP;
+Q. WAQTD HALF OF THE SAL OF THE EMPLOYEES.
+			SELECT SAL/2 AS HALF_SAL
+			FROM EMP;
+2.Comparision Operator: “It is used to compare the values.”
+Q. WAQTD THE EMPLOYEE NAMES WHO ARE GETTING SALARY 2000.
+			SELECT ENAME
+			FROM EMP
+			WHERE SAL = 2000;
+Q. WAQTD THE JOB WHOSE SALARY IS NOT 1000
+			SELECT JOB
+			FROM EMP
+			WHERE SAL! = 1000;
+3.Relational Operator: “this operator is only applicable for number datatype.”
+Q. WAQTD THE EMPLOYEES NAME WHOSE SAL IS MORE THAN 3000
+			SELECT ENAMES
+			FROM EMP
+			WHERE SAL > 3000;
+
+Q. WAQTD THE JOB OF EMPLOYEES WHO IS EARNING LESS THAN 
+      2000
+		SELECT JOB
+		FROM EMP
+		WHERE SAL < 2000;
+4.Concatenation Operator: “It is used to join/merge more than two strings.”
+                  		Concatenation operator is denoted by  ( || )
+Q. HOW CAN YOU DISPLAY THE NAME OF EACH EMPLOYEE BY COMBINING A PREFIX MR.  WITH A SPACE IN BETWEEN?
+SELECT ‘Mr.‘ || ename AS full_name
+ FROM emp;
+Q. HOW WOULD YOU ADD THE LABEL "EMPLOYEE: " IN FRONT OF 
+    EACH EMPLOYEE'S NAME?
+	 	SELECT 'Employee: ' || ename AS EMPLOYEES 
+FROM emp;
+5.Logical Operator: “It is used to perform logical operations (or) it is used to pass multiple conditions in the where clause”. 
+ AND
+ OR
+ NOT
+1.AND: “It is a binary operator & it returns true when all the conditions are satisfied.”
+
+A	B	RESULT
+False	False	False
+False	True	False
+True	False	False
+True	True	True
+Q. WAQTD THE NAMES OF THE EMPLOYEES WHO ARE WORKING IN DEPT 20 AND EARNING SAL MORE THAN 1000.
+	SELECT ENAME
+	FROM EMP
+	WHERE DEPTNO = 20 AND SAL > 1000;
+
+Q. WAQTD THE NAMES OF THE EMPLOYEES WHO ARE WORKING AS SALESMAN AND EARNING SAL LESS THAN 3000.
+	SELECT ENAME
+	FROM EMP
+	WHERE JOB = ‘SALAESMAN’ AND SAL < 3000;
+2.OR: “It is a binary operator & it returns true when any one of the conditions is satisfied.”
+A	B	Result
+False	False	False
+False	True	True
+True	False	True
+True	True	True
+
+		
+
+
+
+
+
+Q. WAQTD THE NAMES OF THE EMPLOYEES WHO ARE WORKING IN DEPARTMET 10 OR 20.
+		SELECT ENAME
+		FROM EMP
+		WHERE DEPTNO=10 OR DEPTNO=20;
+Q. WAQTD THE JOB OF THE EMPLOYEES WHO ARE EARNING LESS THAN 3000 OR MORE THAN 3000
+		SELECT JOB
+		FROM EMP
+		WHERE SAL < 3000 OR SAL > 3000;
+
+
+
+3.NOT: “it is a unary operator, it is used reverse the value.”
+A	Result
+False	True
+False	True
+True	False
+True	False
+		
+
+
+
+
+
+Q. WAQTD THE DETAILS OF EMPLOYEES WHO ARE NOT WORKING IN DEPT 20. (OR) WAQTD DETAILS OF THE EMPLOYEE EXCEPT WHO ARE WORKING IN DEPT 20.
+SELECT *							SELECT *
+FROM EMP     				(OR) 		FROM EMP
+WHERE NOT DEPT = 20;				WHERE DEPTNO !=20;
+
+6.Special Operator:
+1.IN: “IN operator is a multi valued operator which is used to accept multiple values at RHS.”
+SYNTAX:  Column name/Expression IN (v1, v2, v3, v4………);
+Q. WAQTD DETAILS OF THE EMPLOYEES WHO ARE WORKING IN 
+      DEPT 10, 20 & 30.
+  			SELECT *
+			FROM EMP
+			WHERE DEPTNO IN (10, 20, 30);
+Q. WAQTD DETAILS OF THE EMPLOYEES WHO ARE WORKING AS 
+     CLERK, ANALYST AND SALESMAN
+			SELECT *
+			FROM EMP
+			WHERE JOB IN (‘CLERK’,’ANALYST’,’SALESMAN’);
+2.NOT IN: “NOT IN operator is similar to in operator instead of selecting the values at RHS, it will reject the values.”
+SYNTAX:  Column name/Expression NOT IN (v1, v2, v3, v4………);
+Q. WAQTD DETAILS OF THE EMPLOYEES EXCEPT WHO ARE  
+     WORKING IN DEPT 10 & 20.
+                              SELECT *
+			FROM EMP
+			WHERE DEPTNO NOT IN (10, 20);
+
+3.BETWEEN: “Whenever we have range of values then we use BETWEEN 
+operator.”
+•	It is an INCLUSIVE operator.
+  SYNTAX: Column name BETWEEN lower range AND higher range;
+
+Q. WAQTD THE DETAILS OF THE EMPLOYEES WHO ARE EARNING
+     MORE THAN 2000 BUT LESS THAN 5000.
+	SELECT *
+	FROM EMP
+	WHERE SAL > 2000 AND SAL < 5000;
+
+LET’S WRITE A QUERY FOR THIS QUESTION BY USING BETWEEN OPERATOR
+	SELECT *
+	FROM EMP
+	WHERE SAL BETWEEN 2000 AND 5000;
+NOTE: Since BETWEEN operator is an Inclusive operator, means it will 
+   include the boundary values also.
+
+In the above Example, along with the values which falls between 2000 & 5000 it’ll include both 2000 & 5000. If we don’t want 2000 & 5000, we want only the values from 2001 to 4999 then we have to increase the lower range by 1 and decrease the higher range by 1.
+
+	SELECT *
+	FROM EMP
+	WHERE SAL BETWEEN 2001 AND 4999;
+
+Now it’ll include the values from 2001 and 4999 and display the final output.
+
+
+
+Q. WAQTD ANNUAL SALARY MORE THAN 10000 BUT LESS THAN  
+     35000.
+SELECT SAL*12 ANNUAL_SAL
+FROM EMP
+WHERE SAL*12 BETWEEN 10001 AND 34999;
+Q. WAQTD DETAILS OF THE EMPLOYEE WHO ARE HIRED AFTER
+     1980 BUT BEFORE 1987.
+SELECT *
+FROM EMP
+WHERE HIREDATE BETWEEN ‘01-JAN-1981’ AND ‘31-DEC-1986’;
+
+4.NOT BETWEEN: “It is similar to between operator, instead of 				              selecting the range it will reject the range.”
+SYNTAX: Column name NOT BETWEEN lower range AND higher range;
+Q. WAQTD DETAILS OF THE EMPLOYEES EXCEPT WHO IS EARNING SALARY BETWEEN 2500 AND 3500.
+	SELECT *
+	FROM EMP
+	WHERE SAL NOT BETWEEN 2500 AND 3500;
+
+NOTE: NOT BETWEEN is an exclusive operator means it’ll not include the boundary values.
+
+5.IS: “Is operator is used to compare with null/empty cell.”
+ 	SYNTAX:  COL_NAME IS NULL;
+
+Q. WAQTD DETAILS OF THE EMPLOYEE WHO IS NOT EARNING ANY   
+COMM.
+SELECT *
+FROM EMP
+WHERE COMM = NULL;  ❌
+
+Q. WAQTD DETAILS OF THE EMPLOYEE WHO IS NOT EARNING ANY 
+COMM.
+SELECT *
+FROM EMP
+WHERE COMM IS NULL;
+
+
+Q. WAQTD DETAILS OF THE EMPLOYEE WHO IS NOT EARNING ANY 
+SALARY.
+SELECT *
+FROM EMP
+WHERE SAL IS NULL;
+6.IS NOT: “It is similar to IS operator instead of selecting the null it will reject 
+the null.”	
+“IS NOT operator is used to compare with Not Null.”
+  SYNTAX:  COL_NAME IS NOT NULL;
+Q. WAQTD DETAILS OF THE EMPLOYEE WHO IS EARNING SALARY.
+SELECT *
+FROM EMP
+WHERE SAL IS NOT NULL;
+Q. WAQTD DETAILS OF THE EMPLOYEE WHO IS EARNING SALARY 
+      BUT NOT EARNING ANY COMM.
+SELECT *
+FROM EMP
+WHERE SAL IS NOT NULL AND COMM IS NULL;
+Q. WAQTD DETAILS OF THE EMPLOYEE WHO DON’T HAVE
+      REPORTING MANAGER NO.
+SELECT *
+FROM EMP
+WHERE MGR IS NULL;
+
+7.LIKE: “It is used for pattern matching process.”
+
+      SYNTAX:  COL_NAME LIKE ‘PATTERN_TO_MATCH’; 
+
+To achieve pattern matching we use special characters .
+•	Percentile (%)
+•	Underscore ( _ )
+
+Percentile (%) : it is a special character which is used to match any number of character, any number of times.
+
+Underscore ( _ )  : it is a special character which is used to match exactly once but any character.
+
+
+Q. WAQTD DETAILS OF AN EMPLOYEE WHOSE NAME IS SMITH 
+SELECT *
+FROM EMP
+WHERE ENAME = 'SMITH';
+
+Q. WAQTD DETAILS OF THE EMPLOYEE WHOSE NAME STARTS WITH
+'S'. 
+SELECT *
+FROM EMP
+WHERE ENAME LIKE 'S%';
+
+Q. WAQTD DETAILS OF THE EMPLOYEE WHOSE NAME ENDS WITH 'S' 
+SELECT * 
+FROM EMP 
+WHERE ENAME LIKE '%S';
+
+Q. WAQTD NAMES OF THE EMPLOYEES WHO HAVE CHARACTER 'S' 
+      IN THEIR NAMES 
+SELECT ENAME
+FROM EMP 
+WHERE ENAME LIKE '%S%';
+Q. WAQTD NAMES OF THE EMPLOYEE IF THE EMP HAS CHAR 'V' 
+     PRESENT ATLEAST 2 TIMES.
+ 	SELECT ENAME 
+ FROM EMP 
+ WHERE ENAME LIKE '%V%V%';
+Q. WAQTD NAMES AND SAL OF EMPLOYEE IF THE EMP ANNUAL  
+     SALARY'S LAST 3 DIGIT IS 200 RUPEES
+SELECT ENAME, SAL 
+FROM EMP 
+WHERE SAL*12 LIKE '%200';
+
+
+
+
+
+'%A'	SELECT LAST CHAR
+ 'A%'	SELECT FIRST CHAR
+'%A%'	SELECT CHAR FROM ANYWHERE
+NOTE:
+		
+
+
+
+WHEN TO USE UNDERSCORE ( _ )  ?
+Q. WAQTD NAME OF THE EMPĮOYEE WHO HAVE   CHARACTER ‘A’ IN 2 POSITION.
+		SELECT ENAME
+		FROM EMP
+		WHERE ENAME LIKE ‘_A%’;
+Q. WAQTD NAME OF THE EMPLOYEE WHO HAVE 2nd  LAST
+       CHARACTER ‘E’.
+SELECT ENAME
+FROM EMP
+WHERE ENAME LIKE ‘%E_’;
+Q. WAQTD DETAILS OF THE EMPLOYEE WHO IS HAVING 3   
+   DIGIT SALARY.
+SELECT *
+FROM EMP
+WHERE SAL LIKE ‘_ _ _ ’;
+8. NOT LIKE: “It is similar to like operator, instead of selecting it will
+                          reject the pattern.”
+
+SYNTAX: COL_NAME NOT LIKE ‘PATTERN_TO_MATCH’;
+
+Q. WAQTD details of the employee whose name does not start with character  
+         ‘A’.
+SELECT *
+FROM EMP
+WHERE ENAME NOT LIKE ‘A%’;
+
+
+8.Set Operator:
+1.UNION: The union operator could be used to find the result set or combination of two/more table without returning any duplicate rows. 
+
+
+
+
+
+
+
+
+
+ORDER OF EXECUTION:
+1.FROM
+2.WHERE (IF USED) [ROW-BY-ROW]
+3.SELECT
+NOTE:
+1.	The columns must have same datatypes.
+2.	The columns in each table must be in the same order (but they need not have to be in the same length).
+3.	Each table used within union must have the same number of columns.
+4.	It provides the unique values by default.
+2.UNION ALL: The union all operator could to be used to find the result set or combination of two/more table including returning any duplicate rows
+
+			
+
+
+ 
+
+
+
+ORDER OF EXECUTION:
+1.FROM
+2.WHERE (IF USED) [ROW-BY-ROW]
+3.SELECT
+NOTE:
+1.	The columns must have same datatypes.
+2.	The columns in each table must be in the same order (but they need not have to in the same length).
+3.	Each table used within union all must have the same number of columns.
+
+3.INTERSECT:  Intersect operator is used to combine two select statements, it returns only common value [equal value] present in the table[column_name].
+
+
+
+
+
+
+
+
+
+
+
+ORDER OF EXECUTION:
+1.FROM
+2.WHERE (IF USED) [ROW-BY-ROW]
+3.SELECT
+NOTE:
+1. The columns must have same datatypes.
+2. The columns in each table must be in the same order (but they need not have to in the same length).
+3. Each table used within intersect must have the same number of columns.
+
+4.MINUS: MINUS operator is used to compare to select statements, it returns only the row that are present in the first statement , but are not in second statement,[distinct value]. MINUS elements the duplicate rows.
+
+
+
+
+
+
+
+
+
+
+
+
+
+ORDER OF EXECUTION:
+1.FROM
+2.WHERE (IF USED) [ROW-BY-ROW]
+3.SELECT
+NOTE:
+1. The columns must have same datatypes.
+2. The columns in each table must be in the same order (but they need not have to in the same length).
+3. Each table used within MINUS must have the same number of columns.
+
+
+
+
+
+
+
+
+
+
+
+
+				      CHAPTER – 8
+	         	    FUNCTIONS
+FUNCTIONS: "Functions are a block of code or list of instructions which are used to perform a specific task ".
+
+Functions are classified into two types:
+1. User defined function
+2. Built-in / pre-defined function
+
+
+			1.Single Row Function (SRF)
+			2.Multi Row Function    (MRF)
+There are 3 main components of a function
+1)	Function name
+2)	Number of arguments (no of inputs)
+3)	Return type
+1.SINGLE ROW FUNCTION: 
+
+
+			1
+			2
+			N
+
+Characteristics:
+1.SRF executes in ROW-BY-ROW format.
+2.SRF takes one input, process it and executes it to generate an output and takes   
+    next input and so on.
+3. If we pass 'n' number of inputs to the single row function, it returns 'n'
+   number of outputs
+4. We can pass any column along with SRF in the Select Clause.
+5. We can use SRF in Where clause as well.
+6. SRF doesn’t ignores null.
+
+EX:       LENGTH ( )
+Q. WAQTD NO. OF CHARACTERS PRESENT IN EMPLOYEES NAMES
+	SELECT LENGTH (ENAME)
+	FROM EMP;		
+ENAME
+ALLEN
+SCOTT
+KING
+SMIITH
+MILLER
+LENGTH(ENAME)
+5
+5
+                 4
+6
+6
+
+Q. WAQTD THE ENAMES WHO HAS 6 CHARACTERS IN THEIR NAME.
+		SELECT ENAME
+		FROM EMP
+		WHERE LENGTH(ENAME)=6;
+
+2.MULTI ROW FUNCTION:
+
+				
+		         1
+		    2
+	    3
+		    4                                                       
+	   N
+		
+List of MRF ( ):
+MAX( ) : it is used to obtain the maximum value present in the column.
+MIN ( ) : it is used to obtain the minimum value present in the column.
+SUM ( ) : it is used to obtain the summation of values present in the column.
+AVG( ) : it is used to obtain the average of values present in the column.
+COUNT(  ) : it is used to obtain the number of values present in the column.
+Characteristics:
+1. MRF executes in GROUP-BY-GROUP format.
+2. MRF takes all the inputs at one shot and then executes and provides a single 
+    output.
+3. If we pass 'n' number of inputs to an MRF( ) it returns '1' Output.
+4. Along with a MRF( ) we cannot use any other Column_Name in the select  
+    clause.
+5. We cannot use an MRF( ) in where clause.
+6. MRF( ) ignores the Null.
+7. COUNT( ) is the only MRF which can accept * as an Argument . (count (*))
+
+NOTE:  Multi row functions accept only one argument  
+              i.e., a Column Name or an Expression
+
+Q. WAQTD THE MAXIMUM SALARY OF THE EMPLOYEES.
+		SELECT MAX(SAL)
+		FROM EMP;
+
+    MAX( SAL)
+1000
+2000
+2500
+4500
+1500
+
+
+Q. WAQTD TOTAL NUMBER OF EMPLOYEES PRESENT IN THE EMP TABLE 
+		SELECT COUNT(*)
+		FROM EMP;
+OUTPUT:  14
+
+WRITE THE DIFFERENCE BETWEEN SRF & MRF.
+				     CHAPTER - 9
+				      GROUP BY
+Group By:
+“Group By clause is used to group the records.”
+
+ORDER OF EXECUTION:
+1.FROM
+2.WHERE 	(if used)	[ROW-BY-ROW]
+3.GROUP BY		[ROW-BY-ROW]
+4.SELECT			[GROUP-BY-GROUP]
+
+KEY POINTS:
+1.	It is used to group the records.
+2.	Group by clause executes in Row-by-Row format.
+3.	After the execution of group by clause we get the Groups so if any clause that executes after group by it will execute in group-by-group.
+4.	Group by clause can be used without using where clause.
+5.	Group by clause executes after the execution of where clause (if used) or else group by clause executes after execution of from clause.
+6.	The column name/expression used in Group by clause can be used in select clause also, which is known as ‘Group by expression’.
+7.	If we want to pass any other column along with MRF in the select clause we can go for Group By clause.
+
+Q. WAQTD NUMBER OF EMPLOYEES WORKING IN EACH 
+DEPARTMENT
+			SELECT COUNT(*), DEPTNO
+			FROM EMP
+			GROUP BY DEPTNO;
+
+
+
+
+Q. WAQTD NO. OF EMPLOYEES GETTING COMMISSION IN EACH DEPT
+		SELECT COUNT (*), DEPTNO
+		FROM EMP
+		WHERE COMM IS NOT NULL
+		GROUP BY DEPTNO;
+
+Q. WAQTD MAXIMUM SALARY GIVEN TO EACH JOB
+	SELECT MAX(SAL), JOB
+	FROM EMP
+		GROUP BY JOB;
+
+Q. WAQTD MAX SAL & MIN SAL OF THE EMPLOYEE IN EACT DEPT IF THE EMPLOYEE NAME STARTS WITH CHARACTER A.
+				   
+				   CHAPTER-10
+			            HAVING 
+HAVING:
+         “Having clause is used to filter the groups.” 
+
+ORDER OF EXECUTION:
+1.FROM
+2.WHERE 	(if used)	[ROW-BY-ROW]
+3.GROUP BY		[ROW-BY-ROW]
+4.HAVING 			[GROUP-BY-GROUP]
+4.SELECT			[GROUP-BY-GROUP]
+
+KEY POINTS:
+1.	It is used to filter the group by records/ groups.
+2.	Having clause executes in Group-By Group format.
+3.	Having clause executes after the execution of Group By clause.
+4.	In Having clause, we can write group filter condition.
+5.	We can use MRF as a condition in Having clause but we cannot use any column name/expression as a condition in having clause.
+
+Q. WAQTD NO. OF EMPLOYEES WORKING IN EACH DEPT, IF THERE ARE AT LEAST 3 EMP.
+SELECT COUNT (*), DEPTNO
+FROM EMP
+ 			GROUP BY DEPTNO 
+HAVING COUNT (*) >= 3;
+
+
+ 
+ 
+
+
+
+Q. WAQTD job and total salary of each job, if the total salary of each job is greater than 3450.
+			SELECT SUM(SAL), JOB
+			FROM EMP
+			GROUP BY JOB
+			HAVING SUM(SAL) > 3450;
+
+Q. WAQTD NO. OF THE EMPLOYEE WHOSE AVG SALARY GREATER THAN 1000 & THEIR ANNUAL SALARY LESS THAN 1000 IN EACH DEPT.
+SELECT COUNT (*), DEPTNO 
+FROM EMP
+WHERE SAL * 12 < 1000   
+GROUP BY DEPTNO 
+HAVING AVG(SAL) > 1000;
+
+Q. WAQTD NO. OF THE EMPLOYEE WORKING IN EACH DEPT IF THEIR MIN SAL IS LESS THAN MAX SALARY & THEIR NAME STARTS WITH THE CHARACTER ‘A’ AND ATLEAST 2 EMPLOYEE’S ARE WORKING IN EACH DEPT.	
+		 SELECT COUNT (*), DEPTNO 
+ FROM EMP
+ WHERE ENAME LIKE ‘A%’ 
+ 	            GROUP BY DEPTNO
+  HAVING MIN(SAL) < MAX(SAL) AND COUNT (*) >= 2;
+Questions:
+1.	WAQTD the designations in which there are at least 2 employees Present.
+2.	WAQTD the names that are repeated.
+3.	WAQTD names that are repeated exactly twice.
+4.	WAQTD the salary that is repeated.
+5.	WAQTD number of employees working in each dept having At least 2 emp's Character 'A' or 'S' in their names.
+6.	WAQTD job and total salary of the employees if the employees Are earning more than 1500.
+7.	WAQTD Job wise maximum salary if the maximum salary of each job exceeds 2000.
+
+WRITE THE DIFFERENCE BETWEEN WHERE CLAUSE AND HAVING CLAUSE.
+		
+
+
+
+			
+
+		                         CHAPTER-11
+				  	ORDER BY
+ORDER BY:
+	“Order By clause is used to arrange the records either in ascending order or in descending order.”
+
+ORDER OF EXECUTION:
+1.FROM
+2.WHERE 	    	(if used)	[ROW-BY-ROW]
+3.GROUP BY	(if used)	[ROW-BY-ROW]
+4.HAVING 		(if used)	[GROUP-BY-GROUP]
+4.SELECT				[GROUP-BY-GROUP]
+5.ORDER BY 			[ROW-BY-ROW]
+
+KEY POINTS:
+1.	It is used to arrange the records either in ascending order or in descending order.
+2.	By default, order by clause arrange the records in ascending order.
+3.	Order by clause is only the one clause which execute after the execution of select clause.
+4.	In Order by clause, we can pass multiple columns as an argument.
+
+Q. WAQTD DETAILS OF THE EMPLOYEE AND ARRANGE THE SALARY IN ASCENDING ORDER.
+SELECT *
+ FROM EMP
+ORDER BY SAL [ASC] ;
+
+				      CHAPTER-12
+				       SUBQUERY
+SUBQUERY: “A query written inside another query is known as 
+                           subquery.”
+
+WORKING PRINCIPLE:
+	
+    
+
+          INPUT										
+						DEPENDENT
+
+                                                                                                             
+                         	OUTPUT
+
+
+
+Let us consider two queries i.e., outer query and inner query.
+•	Inner query is also known as subquery.
+•	Always inner query will produce output first.
+•	The output of inner query will be the input to an outer query.
+•	The outer query will execute and generate the final RESULT.
+•	So, we can say that outer query is dependent on the inner query.
+
+WHEN / WHY DO WE USE SUBQUERY: 
+CASE 1: “Whenever there is unknown present in the question we have to use subquery, to identify the unknown.”
+CASE 2: “Whenever the data to be select and condition to be executed present in different tables than we can use subquery case2.”
+
+NOTE:
+1.In the Inner Query / Sub Query we cannot select more than One column.
+
+2.The corresponding columns need not be same, but the datatypes of those have to  
+    be same.
+CASE 1: “Whenever there is unknown present in the question we have to use subquery, to identify the unknown.”
+
+EID	ENAME	SAL	DEPTNO
+1	SMITH	2000	20
+2	ALLEN	2500	20
+3	WARD	1800	20
+4	MILLER	3000	30
+5	JONES	4000	10
+6	SCOTT	2000	30
+7	TURNER	1000	10
+Q. WAQTD NAME OF THE EMPLOYEE WHO IS EARNING MORE THAN SMITH.
+
+
+
+
+
+
+
+
+SELECT ENAME                                                                                        
+FROM EMP	  (2000)
+WHERE SAL > (SELECT SAL
+FROM EMP
+WHERE ENAME = ‘SMITH’);
+SAL > 2000
+
+2000 > 2000	3000 > 2000	1000 > 2000
+2500 > 2000	4000 > 2000	
+1800 > 2000	2000 > 2000	
+
+Q. WAQTD NAME OF THE EMPLOYEE WHO IS WORKING IN SAME DEPT AS SMITH.
+
+SELECT ENAME                   (ALLEN ,WARD)
+FROM EMP             	                                      20
+WHERE DEPTNO = (SELECT DEPTNO
+         FROM EMP
+                                        WHERE ENAME = ‘SIMTH’);
+Q. WAQTD DETAILS OF THE EMPLOYEE WHO IS DESIGNATION IS SAME AS WARD.
+SELECT * 
+FROM EMP
+WHERE JOB = (SELECT JOB
+FROM EMP
+WHERE ENAME = ‘WARD’);
+
+Q. WAQTD DETAILS OF THE EMPLOYEE WHO IS HIRED ON THE SAME DATE AS FORD.
+SELECT * 
+FROM EMP
+WHERE HIREDATE = (SELECT HIREDATE
+FROM EMP
+WHERE ENAME = ‘FORD’);
+
+CASE – II: “Whenever the data to be select and condition to be executed present  
+                   in different tables than we can use subquery case 2.”
+
+	 EMP							          DEPT
+EID	ENAME	SAL	DEPTNO
+   1	SMITH	2000	20
+  2	ALLEN	2500	10
+3	WARD	1800	20
+4	MILLER	3000	30
+5	JONES	4000	10
+6	SCOTT	2000	20
+7	TURNER	1000	10
+8	KING	3000	20
+DEPTNO	DNAME	LOC
+10	RESEARCH	BOSTON
+20	OPERATION	NEWYORK
+30	SALES	CHICAGO
+40	ACCOUNTING	DALLAS
+                                                                                
+
+
+
+
+
+
+
+
+
+
+
+Q. WAQTD DEPT NAME OF THE EMPLOYEE WHOSE NAME IS MILLER . 
+         SELECT DNAME               SALES
+          FROM DEPT
+          WHERE DEPTNO= (SELECT DEPTNO          30
+                                              FROM EMP
+                                    WHERE ENAME='MILLER');
+
+
+Q. WAQTD LOC OF THE EMPLOYEE WHOSE NAME IS KING.
+
+SELECT LOC 
+FROM DEPT		
+WHERE DEPTNO = (SELECT DEPTNO
+FROM EMP
+WHERE ENAME = ‘KING’);
+
+Q. WAQTD NAMES OF THE EMPLOYEES EARNING MORE THAN SCOTT IN ACCOUNTING DEPT.
+
+SELECT ENAME
+FROM EMP
+WHERE SAL > (SELECT SAL			
+                  FROM EMP
+     		       WHERE ENAME=’SCOTT’)  AND
+
+DEPTNO = (SELECT DEPTNO 
+                    FROM EMP
+	         WHERE DNAME=’ACCOUNTING’)	; 			
+
+Q. WAQTD NAME, SALARY, JOB, HIREDATE OF THE EMPLOYEE WORKING IN OPERATION DEPARTMENT & HIRED BEFORE KING.
+
+SELECT ENAME, SAL, JOB, HIREDATE 
+FROM EMP
+WHERE HIREDATE < (SELECT HIREDATE
+FROM EMP
+WHERE ENAME = ‘KING’)  AND 
+                                            DEPTNO IN  (SELECT DEPTNO
+                          FROM DEPT
+                                                                   WHERE DNAME = ‘OPERATION’);
+
+Q. WAQTD DETAILS OF THE EMPLOYEE WORKING AS MANAGER IN THE LOCATION ‘CHICAGO’.
+
+SELECT *
+FROM EMP
+WHERE DEPTNO IN (SELECT DEPTNO
+                                                          FROM DEPT
+                                                     WHERE LOC = ‘CHICAGO’) AND
+JOB = ‘MANAGER’;
+MAX and MIN
+Till now we have displayed only max sal/min sal but along with that If I want the name of an employee who is earning max sal / min sal. This can be achieved by using subquery).
+
+Q. WAQTD NAME OF THE EMPLOYEE WHO IS EARNING MAX SAL
+Empno	Ename	SAL	deptno
+1	SMITH	1000	20
+2	ALLEN	2000	10
+3	WARD	2500	30
+4	SCOTT	1800	20
+5	MILLER	3000	30
+
+
+SELECT ENAME 
+FROM EMP 
+WHERE SAL = ( SELECT MAX(SAL)   
+                            FROM EMP);
+
+O/P: MILLER
+
+
+TYPES OF SUBQUERY:
+1.	Single-row subquery
+2.	Multi-row subquery
+1.Single Row Sub query:
+•	If a Sub query return exactly one value then we call it as a SRS.
+•	If it returns exactly one value then we can use either normal or special operator to compare the values.
+EMPNO	ENAME	SAL	DEPTNO
+1	SMITH	1000	20
+2	ALLEN	2000	10
+3	WARD	2500	30
+4	SCOTT	1800	20
+5	MILLER	3000	30
+                EMP                                      			DEPT
+
+DEPTNO	
+DNAME	
+LOC
+10	Research	New York
+20	Sales	   Dallas
+30	Operation	Boston
+40	Accounting	Chicago
+
+	
+
+
+
+
+
+
+
+Q. WAQTD DNAME OF ALLEN
+SELECT DNAME
+FROM DEPT
+WHERE DEPTNO =  (SELECT DEPTNO
+                  FROM EMP
+      WHERE ENAME='ALLEN');
+
+Q.WAQTD EMPLOYEES NAME WHO ARE WORKING IN CHICAGO
+	SELECT ENAME
+	FROM EMP
+	WHERE DEPTNO = (SELECT DEPTNO
+				     FROM DEPT
+				     WHERE LOC=’CHICAGO’);
+
+2. Multi Row Sub query:
+1.	If a Sub query returns more than one value then we will call it has MRS.
+2.	If it returns more than one value then we can’t use normal operators we have to use Special operators to compare the values.
+
+Q. WAQTD DNAME OF ALLEN OR SMITH
+  	SELECT DNAME
+           FROM DEPT
+           WHERE DEPTNO           (SELECT DEPTNO
+                                                     FROM EMP
+                                                     WHERE ENAME IN ('ALLEN' , 'SMITH'); 
+
+
+
+
+
+
+
+
+
+
+
+SELECT DNAME
+FROM DEPT
+WHERE DEPTNO   IN (SELECT DEPTNO
+FROM EMP
+                                          WHERE ENAME IN ('ALLEN' , 'SMITH');
+NOTE:
+1. Equals (=) operator will accept only one value
+2. IN operator will accept single/multiple value.
+3. It is difficult to identify whether a query Belongs Single or Multi row So, it is   
+    always recommended to use Special Operators to Compare The values.
+Q. WAQTD ENAME AND SALARY OF THE EMPLOYEES EARNING   
+    MORE THAN EMPLOYEES OF DEPT 10.
+	SELECT ENAME, SAL
+	FROM EMP
+	WHERE SAL    >     (SELECT SAL  
+			             FROM EMP
+			             WHERE DEPTNO=10);
+
+
+ 
+
+Let’s learn Sub Query Operators:
+
+SUB QUERY OPERATORS:
+•	ALL
+•	ANY
+ NOTE: Sub query can be used only with Relational operator.
+ How to use this:
+1. >ALL	 2. <ALL 		3. >=ALL	      4.  <=ALL
+1.>ANY  	 2. <ANY 	3. >=ANY 	      4.  <=ANY
+
+
+1.ALL:
+•	It is special operator which is used along with relational operator(>,<,>=,<=) to compare  the values present at RHS.
+•	ALL operator returns true if all the values at RHS Satisfies the condition.
+
+Q. WAQTD DETAILS OF EMPLOYEE WHO IS EARNING MORE THAN 
+      EMPLOYEE IN DEPTNO 10
+							                               EMP
+EMPNO	ENAME	SAL	DEPTNO
+1	SMITH	1000	20
+2	ALLEN	2000	10
+3	WARD	2500	30
+4	SCOTT	1800	10
+5	MILLER	3000	30
+SELECT *
+FROM EMP	       (2000,1800) 
+WHERE DEPTNO !=10 AND  SAL>ALL (	SELECT SAL
+                                         FROM EMP
+                            WHERE DEPTNO IN 10);
+
+1000>ALL(2000,1800)    ❌
+2000>ALL(2000,1800)     ❌
+2500>ALL(2000,1800)     ✅
+1800>ALL (2000,1800)     ❌				          FINAL OUTPUT
+EMPNO	ENAME	SAL	DEPTNO
+3	WARD	2500	30
+5	MILLER	3000	30
+3000>ALL(2000,1800)     ✅
+
+NOTE: ALL OPERATOR WILL WORK LIKE AND OPERATOR BOTH 
+              CONDITION SHOULD SATISFY.
+2. ANY OPERATOR: 
+•	It is special operator which is used along with relational operator(>,<,>=,<=) To compare values present at RHS.
+
+•	ANY  operator returns true if any one of the values at RHS Satisfies the condition.
+
+
+
+Q.. WAQTD ENAME,SAL WHO ARE EARNING SAL MORE THAN ANY ONE OF THE EMPLOYEE IN THE DEPTNO 10.
+SELECT ENAME,SAL                                                                                EMP
+EMPNO	ENAME	SAL	DEPTNO
+1	SMITH	1000	20
+2	ALLEN	2000	10
+3	WARD	2500	30
+4	SCOTT	1800	10
+5	MILLER	3000	30
+ FROM EMP                                 (2000,1800)
+WHERE SAL >ANY (SELECT SAL
+                                        FROM EMP
+                                        WHERE DEPTNO =10);
+1000>ANY(2000,1800)  ❌
+2000>ANY(2000,1800)  ✅	
+EMPNO	ENAME	SAL	DEPTNO
+2	ALLEN	2000	10
+3	WARD	2500	30
+5	MILLER	3000	30
+2500>ANY(2000,1800)  ✅				FINAL OUTPUT
+1800>ANY(2000,1800)  ❌
+3000>ANY(2000,1800)  ✅		
+
+
+1.WAQTD name of the employee if the employee earns less than ALL The employees working as salesman .
+2.WAQTD name of the employee if the employee earns less than At least a salesman
+3.WAQTD names of the employees earning more than ADAMS.
+
+NOTE: ANY operator will work like OR operator i.e., any one of the condition    
+                should satisfy.
+
+WHEN TO USE ALL AND ANY OPERATOR?
+1.Question when more than or all employee [ALL]
+2.At least employee /one of the employee   [ANY]
+
+
+NESTED SUB QUERY:
+“A sub query written inside a sub query is known as Nested Subquery.”
+We can nest up to 255 queries.
+
+
+ 
+
+
+
+SAL
+2000
+2500
+1800
+3000
+4000
+2000
+1000
+3800
+WHEN TO USE NESTED SUBQUERY: 
+Q. WAQTD MAX SALARY OF THE EMPLOYEES
+SELECT MAX(SAL)         4000
+ FROM EMP;
+Q. WAQTD 2ND MAXIMUM SALARY OF THE EMPLOYEES
+	SELECT MAX(SAL)             3800
+	FROM EMP
+	WHERE SAL < (SELECT MAX(SAL)          4000
+				FROM EMP);	
+Q. WAQTD 3RD MINIMUM SALARY OF THE EMPLOYEES
+           SELECT MIN(SAL)            2000
+             FROM EMP
+             WHERE SAL > (SELECT MIN(SAL)            1800
+                                           FROM EMP 
+                                           WHERE SAL > (SELECT MIN(SAL)           1000
+				 FROM EMP));
+NOTE: -
+➢	If you are searching for max (<)
+➢	If you are searching for min (>)
+1.WAQTD DEPT NAME OF THE EMPLOYEE GETTING 2ND MINIMUM SALARY.
+2.WAQTD 4TH MAXIMUM SALARY OF THE EMPLOYEE WHO ARE WHO ARE WORKING IN DALLAS.
+
+EMPLOYEE AND MANAGER RELATION:
+                                                                KING
+  
+                                                    SCOTT   ALLEN
+
+
+                                          MILLER                   TURNER
+                
+
+                       ADAMS           JOHN                                 
+                                                                                           FORD
+
+
+EMPNO	ENAME 	MGR
+E1	KING	-
+E2	SCOTT	E1
+E3	MILLER	E2
+E4	ADAMS	E3
+E5	JOHN	E3
+E6	ALLEN	E1
+
+E7	TURNER	E6
+E8	FORD	E7
+
+
+
+
+
+
+
+
+
+CASE 1:  TO IDENTIFY MANAGER.
+Q. WAQTD NAME OF FORD’S MANAGER
+SELECT ENAME
+FROM EMP
+WHERE EMPNO = (SELECT MGR 
+			    FROM EMP
+                                     WHERE ENAME = ‘FORD’);
+Q. WAQTD THE DETAILS OF MILLER’S MANAGER’S MANAGER
+SELECT ENAME
+FROM EMP
+WHERE EMPNO = (SELECT MGR
+			    FROM EMP
+			    WHERE EMPNO = (SELECT MGR
+							FROM EMP
+WHERE ENAME = ‘MILLER’));
+CASE 2:  TO IDENTIFY EMPLOYEES.
+Q. WAQTD THE DETAILS OF THE EMPLOYEES WHO ARE REPORTING TO ALLEN
+SELECT  *
+FROM EMP
+WHERE MGR = (SELECT EMPNO
+			FROM EMP
+			WHERE ENAME = ‘ALLEN’);
+
+NOTE: 
+To find Manager/Reporting mgr	Select MGR in Sub Query
+To find Employees	Select EMPNO in Sub Query
+
+1.WAQTD DNAME & LOC OF THE MILLER’S MANAGER’S MANAGER
+2.WAQTD NAMES AND SALARY OF THE EMPLOYEE WHO ARE REPORTING TO KING.
+3.WAQTD DNAME OF THE EMPLOYEES WHO ARE REPORTING TO MILLER.
+4.WAQTD MANAGER NAME OF THE EMPLOYEES WHO WERE HIRED BEFORE 1982.
+5. WAQTD DNAME OF THE EMPLOYEE REPORTING TO PRESIDENT 6.WAQTD DEPARTMENT DETAILS OF THE EMPLOYEES WHO ARE REPORTING TO MILLER						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			               CHAPTER-13
+					   JOINS
+“The process of retrieving the data from the multiple table simultaneously is known as joins.”
+
+TYPES OF JOINS:
+1.	CARTESIAN/CROSS JOIN
+2.	INNER JOIN/EQUI JOIN
+3.	NATURAL JOIN
+4.	OUTER JOIN 
+1.	LEFT OUTER JOIN
+2.	RIGHT OUTER JOIN
+3.	FULL OUTER JOIN
+     5.SELF JOIN
+
+1.CARTESIAN  / CROSS JOIN:  “In cartesian/cross join the records of table 1 will merge with all the records of table 2.”
+
+
+
+
+
+
+
+
+EID	ENAME	DEPTNO
+
+ 1	SMITH	20
+
+  2	ALLEN	10
+
+3	WARD	30
+DEPTNO	DNAME	LOC
+10	RESEARCH	NY
+20	OPERATION	DALLAS
+30	SALES	BOSTON
+		EMP                                                               DEPT					
+			
+
+
+
+
+Q. WAQTD THE DETAILS OF EMP AND DEPT TABLE
+SELECT *
+FROM EMP, DEPT;
+RESULT TABLE:
+EID	ENAME	DEPTNO	DEPTNO	DNAME	LOC
+1	SMITH	20	10	RESEARCH	NY
+1	SMITH	20	20	OPERATION	DALLAS
+1	SMITH	20	30	SALES	BOSTON
+2	ALLEN	10	10	RESEARCH	NY
+2	ALLEN	10	20	OPERATION	DALLAS
+2	ALLEN	10	30	SALES	BOSTON
+3	WARD	30	10	RESEARCH	NY
+3	WARD	30	20	OPERATION	DALLAS
+3	WARD	30	30	SALES	BOSTON
+
+NOTE: 
+1.The no. of column present in result table will be equal to the summation of column present in both the table.
+2.The no. of records present in result table will be equal to the product of ROWS present in both the table.
+
+2.INNER / EQUI JOIN: “It is used to Obtain only Matching Records " Or " A records which has a Pair.”
+
+
+
+
+
+
+
+JOIN CONDITION: “It is a condition which is used to merge two tableS.”
+
+
+                               EX: EMP. DEPTNO = DEPT. DEPTNO
+
+Q. WAQTD THE DETAILS OF THE EMPLOYEE AND DEPT TABLE
+     SELECT *
+     FROM EMP, DEPT
+     WHERE EMP.DEPTNO=DEPT.DEPTNO;  
+DEPTNO	DNAME	LOC
+10	RESEARCH	NY
+20	OPERATION	DALLAS
+30	SALES	BOSTON
+40	ACCOUNTING	CHICAGO
+
+		EMP							DEPT
+EID	ENAME	DEPTNO
+1	SMITH	20
+
+2	ALLEN	10
+3	WARD	30
+
+
+         
+
+
+
+RESULT TABLE:
+EID	ENAME	DEPTNO	DEPTNO	DNAME	LOC
+1	SMITH	20	20	OPERATION	DALLAS
+2	ALLEN	10	10	RESEARCH	     N Y
+3	WARD	30	30	SALES	BOSTON
+Q. WAQTD NAME OF THE EMPLOYEE AND HIS DEPARTMENT NAME.
+	SELECT ENAME, DNAME
+	FROM EMP, DEPT
+	WHERE EMP.DEPTNO = DEPT.DEPTNO;
+
+Q.   MORE THAN 1100.
+	SELECT ENAME, SAL, LOC
+	FROM EMP, DEPT
+               WHERE EMP.DEPTNO=DEPT.DEPTNO AND SAL>1100;
+
+Q. WAQTD DNAME AND HIS HIREDATE WHERE EMPLOYEE ARE WORKING IN REASEARCH DEPARTMENT AND HIRED BEFORE 1987.
+
+Q. WAQTD ENAME AND DEPTNO AND DNAME WHERE EMPLOYEES ARE WORKING AS MANAGER.
+
+Q. WAQTD ENAME AND HIS SALARY ALONG WITH DEPT DETAILS WHERE EMPLOYEES ARE WORKING IN DEPT 10.
+
+Q. WAQTD  DETAILS  OF THE EMPLOYEES ALONG WITH THE ANNUAL SALARY & LOC WHERE EMPLOYEES WORKING AS CLERK.
+
+3.NATURAL JOIN: “ It has dual behavior.”
+"It behaves as INNER JOIN if there is a relation between the given two tables , else it behaves as CROSS JOIN".
+
+
+
+
+EID	ENAME	DEPTNO
+1	SMITH	20
+2	ALLEN	10
+3	WARD	30
+DEPTNO	DNAME	LOC
+10	RESEARCH	NY
+20	OPERATION	DALLAS
+30	SALES	BOSTON
+         EMP                                                    DEPT                                                   PRODUCT
+PID	PNAME	PRICE
+P1	DELL	40000
+P2	HP	30000
+ 
+
+Q. WAQTD ENAME & DNAME.
+      SELECT ENAME, DNAME
+       FROM EMP NATURAL JOIN  DEPT;
+
+ACTS AS INNER JOIN BECAUSE IN BOTH THE TABLES COMMON COLUMN IS THEIR.
+ 				       RESULT TABLE
+DEPTNO	EID	ENAME	DNAME	LOC
+20	1	SMITH	OPERATION	DALLAS
+10	2	ALLEN	RESEARCH	NY
+30	3	WARD	SALES	BOSTON
+
+
+
+
+  
+
+Q. WAQTD ALL THE DETAILS FROM EMP & PRODUCT TABLE
+SELECT *
+FROM EMP NATURAL JOIN PRODUCT;
+ACTS AS CROSS JOIN BECAUSE IN BOTH THE TABLES COMMON COLUMN IS NOT THEIR.
+				    RESULT TABLE
+EID	ENAME	DEPTNO	PID	PNAME	PRICE
+1	SMITH	20	P1	DELL	40000
+1	SMITH	20	P2	HP	30000
+2	ALLEN	10	P1	DELL	40000
+2	ALLEN	10	P2	HP	30000
+3	WARD	30	P1	DELL	40000
+3	WARD	30	P2	HP	30000
+          
+
+
+
+
+4.OUTER JOIN: “It is used to obtain unmatched records.”
+  
+   TYPES OF OUTER JOIN:
+1.	LEFT OUTER JOIN
+2.	RIGHT OUTER JOIN
+3.	FULL OUTER JOIN
+1.LEFT OUTER JOIN:  “It is used to obtain unmatched records only from left  
+                                          table, along with matching records.”
+
+
+
+
+
+
+
+
+
+Q. WAQTD MATCHING AND UNMATCHING RECORD FROM LEFT TABLE
+SELECT *
+FROM EMP, DEPT
+WHERE EMP.DEPTNO = DEPT.DEPTNO (+);
+
+                 EMP                                                                      DEPT
+ENAME	DEPTNO
+  SMITH	20
+
+ALLEN	NULL
+WARD	10
+SCOTT	NULL
+DEPTNO	DNAME
+10	RESEARCH
+20	OPERATION
+30	SALES
+40	ACCOUNTING
+							 
+
+
+
+
+
+		       RESULT TABLE
+ENAME	DEPTNO	DEPTNO	DNAME
+SMITH	20	20	OPERATION
+WARD	10	10	RESEARCH
+ALLEN	NULL		
+SCOTT	NULL		
+
+2.RIGHT OUTER JOIN:  “It is used to obtain unmatched records only 
+                                 from right table, along with matching records.”
+
+
+
+
+
+
+
+
+
+Q. WAQTD MATCHING AND UNMATCHING RECORD FROM RIGHT
+TABLE
+SELECT *
+FROM EMP, DEPT
+WHERE EMP.DEPTNO(+) = DEPT.DEPTNO;
+
+                 EMP                                                                      DEPT
+ENAME	DEPTNO
+  SMITH	20
+
+ALLEN	NULL
+WARD	10
+SCOTT	NULL
+DEPTNO	DNAME
+10	RESEARCH
+20	OPERATION
+30	SALES
+40	ACCOUNTING
+							 
+
+
+
+       RESULT TABLE
+ENAME	DEPTNO	DEPTNO	DNAME
+SMITH	20	20	OPERATION
+WARD	10	10	RESEARCH
+		  30	   SALES
+		  40	ACCOUNTING
+
+3.FULL OUTER JOIN: “It is used to obtain unmatched records from both     
+                                               Left & right table, along with matching records.”
+
+
+
+
+
+
+
+
+
+
+                EMP  				                                    DEPT
+DEPTNO	DNAME
+10	RESEARCH
+20	OPERATION
+30	SALES
+40	ACCOUNTING
+
+ENAME	DEPTNO
+  SMITH	20
+ALLEN	NULL
+WARD	10
+SCOTT	NULL
+
+					
+
+
+ 
+Q. WAQTD matching and unmatching records from both tables
+SELECT *
+FROM EMP full join DEPT
+ON EMP.DEPTNO = DEPT.DEPTNO;
+
+
+
+
+RESULT TABLE
+ENAME	DEPTNO	DEPTNO	DNAME
+SMITH	20	20	OPERATION
+WARD	10	10	RESEARCH
+ALLEN	NULL	     -	   -
+SCOTT	NULL	   -	   --
+   -	  -	30	SALES
+  -	  -	40	ACCOUNTING
+
+5.SELF JOIN: “Joining a table by itself.”
+“Joining same 2 tables is known self-join.”
+
+
+
+
+
+
+
+
+
+              EMP E1							        EMP E2
+EID	ENAME	MGR
+1	SMITH	3
+
+2	ALLEN	4
+
+3	WARD	2
+4	MILLER	      1
+EID	ENAME	MGR
+1	SMITH	3
+2	ALLEN	4
+3	WARD	2
+4	MILLER	       1
+
+
+
+
+
+
+
+NOTE: 
+E1:  EMPLOYEE TABLE E2: MANAGER TABLE
+
+Q. WAQTD DETAILS OF THE EMPLOYEE AND THEIR MANAGER
+SELECT *
+FROM EMP E1, EMP E2
+WHERE E1.MGR = E2. EMPNO;
+
+3=1❌	4=1❌		2=1❌		1=1✔
+3=2❌	4=2❌		2=2✔	          1=2❌
+3=3✔	4=3❌		2=3❌		1=3❌
+3=4❌	4=4✔		2=4❌		1=4❌
+
+		
+		                 RESULT TABLE
+      EID	     ENAME	MGR	EID	ENAME	MGR
+1	SMITH	3	3	WARD	2
+2	ALLEN	4	4	MILLER	           1
+3	WARD	2	2	ALLEN	              4 
+4	MILLER	1	1	SMITH	              3
+
+Q. WAQTD NAME OF THE EMPLOYEE AND HIS MANAGER.
+
+SELECT E1. ENAME, E2.ENAME 
+FROM EMP E1, EMP E2 
+WHERE E1.MGR = E2. EMPNO;
+
+
+
+
+
+
+Q. WAQTD ENAME ALONG WITH MANAGER NAME & THEIR DEPTNO, WHERE EMPLOYEE IS WORKING IN DEPTNO 20.
+			
+   SELECT E1. ENAME, E1. DEPTNO, E2. ENAME, E2. DEPTNO 
+   FROM EMP E1, EMP E2
+   WHERE E1.MGR = E2. EMPNO AND E1. DEPTNO = 20;
+
+
+
+Q. WAQTD NAME OF THE EMPLOYEE AND HIS SALARY ALONG WITH MANAGER NAME & SALARY.
+SELECT E1. ENAME, E1.SAL, E2. ENAME, E2.SAL 
+FROM EMP E1, EMP E2
+WHERE E1.MGR = E2. EMPNO;
+
+                           MULTIPLE CONDITION ON JOINS 
+
+Q. WAQTD ENAME & HIS MANAGER’S NAME & MANAGER’S MANAGER NAME.
+
+E1-EMPLOYEE 
+E2-MANAGER 
+E3-MANAGER’S MANAGER
+
+SELECT E1. ENAME, E2. ENAME, E3. ENAME
+FROM EMP E1, EMP E2, EMP E3
+WHERE E1.MGR = E2. EMPNO AND E2.MGR = E3. EMPNO;
+
+Q. WAQTD EMPLOYEE NAME & HIS DNAME WITH MGR’S NAME & HIS DNAME.
+
+   			E1                        E2 	
+                                        SELF JOIN	
+              
+         INNER JOIN				     INNER JOIN
+
+ 		         D1		           D2 
+
+
+
+
+SELECT E1. ENAME, D1. DNAME, E2. ENAME, D2. DNAME
+FROM EMP E1, DEPT D1, EMP E2, DEPT D2
+WHERE E1.MGR = E2. EMPNO AND
+E1. DEPTNO = D1. DEPTNO AND E2. DEPTNO = D2. DEPTNO;
+
+
+
+
+
+
+Q. WAQTD EMP NAME & HIS SALARY & MANAGER’S NAME AND HIS SALARY AND MANAGER’S MANAGER NAME AND HIS SALARY WHERE MANAGER’S MANAGER IS EANING MORE THAN EMPLOYEE.
+
+SELECT E1. ENAME, E1. SAL, E2. ENAME, E2. SAL, 
+E3. ENAME, E3.SAL 
+FROM EMP E1, EMP E2, EMP E3
+WHERE E1.MGR = E2. EMPNO AND E2.MGR = E3. EMPNO AND
+ E3.SAL > E1. SAL;
+
+
+			             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  CHAPTER – 14
+		             CO-RELATED SUBQUERY
+
+" A query written inside another query such that the outer query and the inner query are dependent on each other, this is known as Co-Related Sub-Query."
+
+
+WORKING PRINCIPLE:
+ 
+
+   Let us consider two queries i.e.,  inner query  and outer query.
+•	Outer query executes first but partially (50%)
+•	The partially executed output of outer query will be given as an input to the inner query
+•	The inner query executes completely and generates an output.
+•	The output of inner query is fed as an input to the Outer query and Outer Query produces the final result .
+•	Therefore, we can state that the outer query and the inner query,  both are INTERDEPENDENT ( dependent on each other ) .
+
+•	In co-related sub query a Join condition is a must , And must be written only in the Inner Query .
+•	Co-Related sub query works with the principles of both SUB QUERY & JOINS .
+
+
+  
+ DIFFERENCE BETWEEN SUB QUERY & CO-RELATED SUBQUERY
+           SUB QUERY	   CO-RELATED SUB QUERY
+Inner query gives the output first
+	Outer query executes first
+Outer query is dependent on inner query	         Both are interdependent
+Join condition is not mandatory	Join condition is mandatory and must be written in inner query
+Outer query executes Once	Outer query executes twice
+
+
+Q. WAQTD DNAME IN WHICH THE EMPLOYEES ARE WORKING.
+	SELECT DNAME
+	FROM DEPT
+	WHERE DEPTNO IN (SELECT DEPTNO
+				        FROM EMP
+				        WHERE EMP.DEPTNO = DEPT.DEPTNO);
+
+Q. WAQTD DNAME IN WHICH EMPLOYEES ARE NOT WORKING.
+	SELECT DNAME
+	FROM DEPT
+	WHERE DEPTNO NOT IN (SELECT DEPTNO
+				                FROM EMP
+					     WHERE EMP.DEPTNO=DEPT.DEPTNO);
+	
+EXISTS:
+Exists Operator is a Unary Operator (One Operand) which can accept only one operand towards RHS and that operand has to be co related sub query.
+
+Exists Operator returns true if the Sub Query returns Any value other than Null.
+
+Q. WAQTD DNAME IN WHICH EMPLOYEES ARE WORKING.
+	SELECT DNAME
+	FROM DEPT
+	WHERE EXISTS (SELECT DEPTNO
+				                FROM EMP
+					     WHERE EMP.DEPTNO=DEPT.DEPTNO);
+
+NOT EXISTS:
+NOT EXISTS operator is a unary operator (one operand) which can accept one operand towards RHS and that operand has to be a co-related sub query.
+           
+          Not Exists Operator returns true if the Sub Query returns NULL.
+Q. WAQTD DNAME IN WHICH EMPLOYEES ARE NOT WORKING.
+	SELECT DNAME
+	FROM DEPT
+	WHERE NOT EXISTS (SELECT DEPTNO
+				                FROM EMP
+					     WHERE EMP.DEPTNO=DEPT.DEPTNO);
+
+To find nth MAXIMUM & nth MINIMUM salary:
+
+1.TO FIND THE MAXIMUM SALARY
+
+Q. WAQTD 4TH MAXIMUM SALARY
+	SELECT SAL            1000
+	FROM EMP E1                   (3,2,5,1,0)
+	 WHERE    (SELECT COUNT (DISTINCT SAL)
+		       FROM EMP E2
+		       WHERE E1.SAL < E2.SAL) = 4-1;            3
+
+                                      
+                                           EMP E1	             EMP E2
+        Sal
+1000
+1800
+250
+3500
+4800
+      Sal
+1000
+1800
+250
+3500
+4800
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+Q. WAQTD 2ND , 5TH  ,  8TH MAX SALARY
+      SELECT SAL
+       FROM EMP E1
+       WHERE ( SELECT COUNT(DISTINCT SAL)
+                         FROM EMP E2
+                       WHERE E1.SAL < = E2.SAL) IN (2,5,8);
+
+2.TO FIND THE MAXIMUM SALARY
+Q. WAQTD 4TH MINIMUM SALARY
+	SELECT SAL            3500
+	FROM EMP E1                   (1,2,0,3,4)
+	 WHERE    (SELECT COUNT (DISTINCT SAL)
+		       FROM EMP E2
+		       WHERE E1.SAL > E2.SAL) = 4-1;            3
+
+                                      
+                                  
+
+
+
+         EMP E1	             EMP E2
+        Sal
+1000
+1800
+250
+3500
+4800
+      Sal
+1000
+1800
+250
+3500
+4800
+
+
+
+
+
+
+
+
+
+
+
+
+1.WAQTD 5TH  MAX SALARY
+2.WAQTD 3RD SMIN SALARY
+3.WAQTD 2ND  ,5TH , 8TH  MIN SALARY
+4.WAQTD 7TH MIN & 6TH   MIN SALARY
+5.WAQTD 5TH MAX & 5TH MIN SALARY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CHAPTER – 15
+DATA DEFINITION LANGUAGE
+
+“DDL is used to construct an object in the database and deals with that structure of object / table / entity.
+
+TYPES OF DDL STATEMENTS :
+•	Create
+•	Rename
+•	Alter
+•	Truncate
+•	Drop
+
+1.CREATE : It is used to build or construct the table in the database.
+SYNTAX:		 CREATE TABLE TABLE_NAME (
+ CN1 DATATYPE 	[CONSTRAINTS], 
+ CN2 DATATYPE [CONSTRAINTS],
+                                   ……
+                                   ……
+                                 CNn DATATYPE [CONSTRAINTS]);
+
+EX :	STUDENT TABLE
+CREATE TABLE STUDENT (
+SID NUMBER(10) PRIMARY KEY,
+SNAME VARCHAR(15) NOT NULL,
+PH_NO NUMBER (10) UNIQUE NOT NULL CHECK (PH_NO>0)
+ CHECK (LENGTH(PH_NO)=10));
+
+
+
+
+
+
+2.RENAME: It is used to change the name of the existing table.
+SYNTAX : RENAME EXISTING_TABLE_NAME TO NEW_TABLE_NAME;
+EX : RENAME STUDENT TO STUDENTS;
+3.ALTER: It is used to modify the structure of the table.
+SUCH AS:
+•	To add the column
+•	To remove the column
+•	To rename the column
+•	To modify the datatype
+•	To modify the constraints
+1. To add the column:
+SYNTAX : ALTER TABLE TABLE_NAME
+                   ADD COL_NAME DATATYPE CONSTRAINT;
+EX : ALTER TABLE STUDENTS
+          ADD MAIL_ID VARCHAR (15) UNIQUE NOT NULL;
+2. To remove the column:
+SYNTAX : ALTER TABLE TABLE_NAME 
+                    DROP COLUMN COLUMN_NAME;
+EX : ALTER TABLE STUDENTS
+         DROP COLUMN MAIL_ID;
+3.To rename the column:
+SYNTAX : ALTER TABLE TABLE_NAME
+                    RENAME COLUMN EXISTING_COLNAME TO NEW_COLNAME;
+EX : ALTER TABLE STUDENTS
+       RENAME COLUMN PH_NO TO MOB_NO;
+
+4. To modify the datatype:
+SYNTAX : ALTER TABLE TABLE_NAME
+ MODIFY COL_NAME NEW_DATATYPE;
+EX :	ALTER TABLE STUDENTS
+          MODIFY SNAME VARCHAR(20);
+5.To modify the constraints:
+SYNTAX : ALTER TABLE TABLE_NAME
+                    MODIFY COL_NAME EXISTING_DATATYPE    
+                     NEW_CONSTRAINT (NULL/NOT NULL);
+EX:	ALTER TABLE STUDENTS
+           MODIFY MAIL_ID VARCHAR(20) NULL;
+
+HOW TO ADD THE CONSTRAINT:
+
+SYNTAX : ALTER TABLE TABLE_NAME
+ADD CONSTRAINT CON_REF_NAME  
+ CONSTRAINT_TYPE(COL_NAME);
+EX : ALTER TABLE STUDENTS
+ADD CONSTRAINT UNI_MAIL UNIQUE(MAIL_ID);
+
+TO DROP THE CONSTRAINT:
+SYNTAX : ALTER TABLE TABLE_NAME
+DROP CONSTRAINT CON_REF_NAME;
+
+EX : ALTER TABLE STUDENTS
+DROP CONSTRAINT UNI_MAIL;
+
+HOW TO ASSIGN A FOREIGN KEY?
+
+EX: CUSTOMER – CHILD TABLE	        PRODUCT – PARENT TABLE
+
+CID	CNAME	PH_NO	PID
+	PID	PNAME	PRICE
+1	ARJUN	9876660000			11	WATCH	25000
+2	AKASH	7868804567			12	SHOES	10000
+
+
+STEP 1: ADD THE COLUMN FROM PRODUCT TABLE INTO 
+                CUSTOMER  TABLE.
+SYNTAX: ALTER TABLE TABLE_NAME 
+ADD COL_NAME DATATYPE;
+EX: ALTER TABLE CUSTOMER 
+        ADD PID NUMBER (5);
+STEP 2: ASSIGN A FOREIGN KEY
+
+SYNTAX : ALTER TABLE TABLE_NAME
+ADD CONSTRAINT CON_REF_NAME FOREIGN KEY(COLNAME) REFERENCES PARENT_TABLE_NAME(COLNAME);
+
+EX: ALTER TABLE CUSTOMER
+         ADD CONSTRAINT FK_PID FOREIGN KEY (PID) REFERENCES 
+         PRODUCT(PID) ;
+
+SYNTAX - 2 :TO ADD A FOREIGN KEY:
+
+
+
+
+4.TRUNCATE: It is used to remove all the records/data from the table 
+                            Permanently (but structure of the table will be their).
+SYNTAX: TRUNCATE TABLE TABLE_NAME; 
+EX: TRUNCATE TABLE CUSTOMER;
+
+5.DROP : It is used to remove table from the database.
+SYNTAX : DROP TABLE TABLE_NAME ; 
+EX : DROP TABLE CUSTOMER ;
+
+                         Bin Folder
+    
+CID	CNAME	PH_NO
+1	ARJUN	9876660000
+2	AKASH	7868804567
+     
+
+
+
+
+
+
+TO RECOVER THE TABLE FROM BIN FOLDER:
+FLASHBACK: it is used to restore the table from the bin folder.
+SYNTAX: FLASHBACK TABLE TABLE_NAME TO BEFORE DROP;
+EX:	FLASHBACK TABLE CUSTOMER TO BEFORE DROP;
+
+TO DELETE THE TABLE FROM BIN FOLDER:
+PURGE: it is used to delete the table from the bin folder permanently.
+SYNTAX: PURGE TABLE TABLE_NAME; 
+EX: PURGE TABLE CUSTOMER;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CHAPTER – 16
+DATA MANIPULATION LANGUAGE
+
+DML is used to manipulate the table / object by performing insertion,updating and deletion of records.
+
+TYPES OF DML STATEMENTS:
+•	Insert
+•	Update
+•	Delete
+
+1.INSERT: It is used to create / insert the records into the table.
+
+SYNTAX-1: INSERT INTO TABLE_NAME VALUES (V1, V2, V3……, Vn);
+
+ EX: INSERT INTO CUSTOMER VALUES 
+        (1,’ARYA’,9988776655, A@GMAIL.COM’);
+SYNTAX -2: INSERT INTO TABLE_NAME VALUES (&COL1, &COL2,  
+                               &COL3…..&COLn);
+
+ EX: INSERT INTO CUSTOMER VALUES (&CID, &CNAME, &PH_NO);
+
+2.UPDATE: It is used to modify / update the existing values in the table.
+SYNTAX :   UPDATE TABLE_NAME
+SET COL_NAME=VALUE, COL_NAME=VALUE
+                   [WHERE <FILTER_CONDITION>];
+EX: UPDATE CUSTOMER
+       SET PH_NO=0987654321
+       WHERE CNAME = ‘ARYA’;
+3.DELETE : It is used to remove / delete the particular record from the table.
+ SYNTAX :  DELETE
+ FROM TABLE_NAME
+           [ WHERE<FILTER_CONDITION>];
+
+   EX : DELETE
+           FROM CUSTOMER 
+          WHERE CNAME=’ARYA’;
+
+REMEMBER: we can delete all records with the help of delete statement 
+                         but without passing any condition.
+
+
+   
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CHAPTER – 17
+TRANSACTION CONTROL LANGUAGE
+  “It is used to control the transaction done on the database.”
+
+  TRANSACTION: The DML operations performed on the database is called as 
+                              transaction such as insertion, updating and deletion of records.
+   3 STATEMENTS
+•	Commit
+•	Rollback
+•	Save point
+1.COMMIT: It is used to save the records / transaction on the database.
+          SYNTAX : COMMIT;
+ 
+EX:     EMP TABLE		   workplace                                  Database 
+EID	ENAME
+1	Arya
+2	Arjun
+3	Akash
+EID	ENAME
+	
+	
+
+	
+EID	ENAME
+1	Arya
+2	Arjun
+3	Akash
+
+		
+                                                                       COMMIT               
+
+
+INSERT INTO EMP VALUES (1, ‘Arya’);
+INSERT INTO EMP VALUES (2, ‘Arjun’);
+INSERT INTO EMP VALUES (3, ‘Akash’);
+    COMMIT;                                                                        Workplace                         Database		
+EID	ENAME
+1	Arya
+2	Arjun
+3	Akash
+EID	ENAME
+	
+
+	
+	
+EID	ENAME
+1	Arya
+2	Arjun
+3	Akash
+
+  DELETE	
+  FROM EMP;
+			               
+
+
+2.ROLLBACK : It is used to get back to the latest saved location.
+SYNTAX : ROLLBACK; 
+EX : EMP TABLE
+
+
+EID	ENAME
+1	Arya
+2	Arjun
+3	Akash
+EID	ENAME
+1	Arya
+2	Arjun
+3	Akash
+                                                                                                                     
+
+
+
+     Workplace				      Database
+
+INSERT INTO EMP VALUES (4, ‘Anusha’);
+INSERT INTO EMP VALUES (5, ‘Ankita’);
+
+     Workplace                                                        Database
+EID	ENAME
+1	Arya
+2	Arjun
+3	Akash
+4	Anusha
+5	Ankita
+
+EID	ENAME
+1	Arya
+2	Arjun
+3	Akash
+
+  ROLLBACK;                              
+
+
+
+
+
+
+
+3.SAVEPOINT: It is used to give the restoration point or mark the position or   
+                            checkpoints.
+SYNTAX : SAVEPOINT SAVEPOINT_NAME;
+EX : SAVEPOINT S1;
+
+10 RECORDS ARE INSERTED - SAVEPOINT S1;
+10 RECORDS ARE INSERTED – SAVEPOINT S2;
+10 RECORDS ARE INSERTED – SAVEPOINT S3;
+
+COMMAND – ROLLBACK TO S3;
+ALL 30 RECORDS WILL BE DISPLAYED. 
+                           ROLLBACK TO S2;
+FIRST 20 RECORDS WILL BE DISPLAYED.
+                           ROLLBACK TO S1.
+FIRST 10 RECORDS WILL BE DISPLAYED.
+                                              CHAPTER – 18
+                      DATA CONTROL LANGUAGE
+“It is used to control the dataflow between the users.”
+
+We have 2 statements:
+•	GRANT
+•	REVOKE
+
+1.GRANT: it is used to give the permission to user.
+SYNTAX:  GRANT SQL_STATEMENTS 
+ON TABLE_ NAME
+                     TO USER_NAME;
+
+REVOKE: it is used to take back the permission given to the user. 
+SYNTAX: REVOKE SQL_STATEMENTS
+        ON TABLE_NAME 
+         FROM USER_NAME;
+
+COMMENTS: Comments are used to explain the sections of SQL
+                            statements.
+TYPES:
+•	SINGLE LINE COMMENT
+•	MULTI LINE COMMENT
+
+1.SINGLE LINE COMMENT: comments starts and end within single line is called as single line comment (individual line comment).
+ Single line comment start with -- and [ends with :]
+SYNTAX:
+                                  
+Example:
+--select all the details of the employees : 
+SELECT * 
+FROM EMP;
+
+
+
+
+2.MULTI LINE COMMENT: Comments starts with first line but ends with different line are called multi lines comments .
+
+            Multi line comments starts with /* and ends with */
+
+SYNTAX:
+
+Example:
+/*select all
+ the details of the employees */
+SELECT *
+FROM EMP;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     CHAPTER – 19
+PSEUDO COLUMNS
+
+“Pseudo columns are the false columns that are present in each and every table & they must be called explicitly. 
+Pseudo columns cannot be seen without calling them explicitly.”
+
+Types of Pseudo columns:
+1.ROWID
+2.ROWNUM
+
+1.ROWID:
+ROWID is an 18-digit address in which the record is present.
+
+Note:
+•	ROWID is generated at the time of insertion of records.
+•	ROWID is one of the ways to access or delete the records.
+•	ROWID is unique & it is not null.
+•	ROWID is present for each and every record.
+•	ROWID cannot be inserted, updated or deleted.
+•	Empty table will not be having ROWID.
+•	ROWID is static in nature.
+•	ROWID can be used to identify a record uniquely from the table when there is no key attribute or primary key.
+
+ SYNTAX:          TO FETCH TOP RECORD (1st minimum)
+
+
+                  TO FETCH BOTTOM RECORD(1st maximum)
+
+EXAMPLE:
+SELECT ROWID, EMP.* 
+FROM EMP;
+
+WRITE A QUERY-
+1.	TO FETCH THE FIRST RECORD FROM THE EMP TABLE
+2.	TO FETCH THE 2ND RECORD FROM THE EMP TABLE
+3.	TO FETCH THE 4TH,5TH,8TH RECORD FROM THE EMP TABLE
+4.	TO FETCH THE LAST RECORD FROM THE EMP TABLE
+5.	TO FETCH THE SECOND LAST RECORD FROM THE EMP TABLE
+6.	TO DELETE THE 1ST RECORD FROM THE EMP TABLE.
+7.	TO UPDATE THE LAST RECORD FROM THE EMP TABLE.
+8.	TO DELETE THE LAST RECORD FROM THE EMP TABLE.
+2.ROWNUM:
+“ROWNUM acts as serial number to the result table.”
+NOTE:
+1.	ROWNUM is used as record number that is assigned to the result table.
+2.	ROWNUM is dynamic in nature.
+3.	ROWNUM is generated at the time of execution.
+4.	ROWNUM always starts with 1.
+5.	ROWNUM get incremented after it is assigned.
+6.	ROWNUM cannot be duplicated & it’s unique.
+Example:
+Q. WAQTD ROWNUM ALONG WITH ALL THE DETAILS OF EMP.
+SELECT ROWNUM, EMP.*
+FROM EMP;
+Q. WAQTD FIRST 3 RECORDS.
+	SELECT *
+	FROM EMP
+	WHERE ROWNUM < 4;
+Q. WAQTD THE 3RD RECORD FROM THE EMP TABLE.
+	SELECT * 
+	FROM EMP
+	WHERE ROWNUM = 3;
+O/P: NO ROWS SELECTED.    WHY???
+	We have to make ROWMUN static, because it’s dynamic based on the result table.
+Let’s see how to make a ROWNUM static…!
+1.	Take a table and assign ROWNUM to a given table
+2.	Change the ROWNUM to any other name by using ALIAS.
+3.	Use this as a subquery in FROM clause of outer query
+4.	In the outer query use the alias name in the condition
+               SELECT *
+	     FROM (SELECT ROWNUM AS SI_NO , EMP.* FROM EMP)
+	     WHERE SI_NO = 3;
+Q. WAQTD 1ST AND 5TH RECORD FROM THE EMP TABLE.
+	     SELECT *
+	     FROM (SELECT ROWNUM AS SI_NO, EMP.* FROM EMP)
+	     WHERE SI_NO IN (1,5);
+
+
+WAQTD:
+1.FETCH FIRST SEVEN RECORDS FROM THE EMP TABLE.
+2.LAST 3 RECORDS FROM THE EMP TABLE.
+3.FIRST 25% OF THE RECORDS FROM THE EMP TABLE.
+4.LAST 25% OF THE RECORDS FROM THE EMP TABLE.
+5. HALF OF THE RECORDS FROM THE EMP TABLE.
+Let’s see how to find nth maximum & nth minimum salary by using pseudo rownum.
+
+Q. WAQTD 3RD MAXIMUM SALARY.
+ Step – 1:  Remove all the duplicate salaries by using distinct keyword and arrange the records in descending order.
+SELECT DISTINCT SAL
+FROM EMP
+ORDER BY SAL DESC; 
+
+Step – 2:  For the arranged result of step-1 query, assign a ROWNUM and rename it as SI_NO.  
+ 		SELECT ROWNUM AS SI_NO, SAL
+FROM (SELECT DISTINCT SAL
+    FROM EMP
+              ORDER BY SAL DESC);
+Step – 3: Now write step – 2 query in From clause of outer query and then according to the condition , filter the records in the outer query.
+		SELECT SAL
+		FROM (SELECT ROWNUM AS SI_NO, SAL
+    FROM (SELECT DISTINCT SAL 
+       FROM EMP
+                 ORDER BY SAL DESC))
+		WHERE SI_NO = 3;
+
+ 
+
+
+
+Q. WAQTD 3RD MINIMUM SALARY.
+ Step – 1:  Remove all the duplicate salaries by using distinct keyword and arrange the records in descending order.
+SELECT DISTINCT SAL
+FROM EMP
+ORDER BY SAL; 
+
+Step – 2:  For the arranged result of step-1 query, assign a ROWNUM and rename it as SI_NO.  
+ 		SELECT ROWNUM AS SI_NO, SAL
+FROM (SELECT DISTINCT SAL
+    FROM EMP
+              ORDER BY SAL);
+Step – 3: Now write step – 2 query in From clause of outer query and then according to the condition, filter the records in the outer query.
+		SELECT SAL
+		FROM (SELECT ROWNUM AS SI_NO, SAL
+    FROM (SELECT DISTINCT SAL 
+       FROM EMP
+                 ORDER BY SAL))
+		WHERE SI_NO = 3;
+
+Q. WAQTD 1ST, 5TH & 7TH MAXIMUM SALARY.
+Q. WAQTD LAST 25% OF MAXIMUM SALARY.
+Q. WAQTD FIRST 40% OF MAXIMUM SALARY.
+Q. WAQTD FIRST 50% OF MINIMUM SALARY.
+
+
+
+
+
+
+CHAPTER – 20
+SINGLE ROW FUNCTIONS
+1.LENGTH:
+“It is used to count the no. of characters in the given string.”
+SYNTAX:  LENGTH (‘STRING’)
+EX:  LENGTH (‘QSPIDERS’) 
+SELECT LENGTH
+(‘QSPIDERS’) FROM DUAL;			O/P: 8
+  
+NOTE :
+DUAL TABLE: It is a DUMMY table which has one column and one row Which is used to display the output.
+
+Example:
+WAQ to count the number of characters present in 'SMITH'.
+SELECT LENGTH (ENAME)	
+FROM EMP		
+WHERE ENAME='SMIITH'    O/P: LENGTH(ENAME)
+							5
+
+2.CONCAT:   "It is used to join the given two strings “
+           SYNTAX:  CONCAT ('string1', 'String2')
+Example:
+SELECT CONCAT ('MR ', ENAME)
+FROM EMP
+WHERE ENAME='SMIITH';	    O/P: MR SMIITH
+
+3.UPPER( ) : "It is used to convert a given string to upper case."
+			SYNTAX: UPPER(‘STRING’)  
+Example:     SELECT UPPER(‘spring’)
+                      FROM DUAL;			O/P: SPRING
+
+
+
+4.LOWER( ): "It is used to convert a given string to lower case "
+SYNTAX: UPPER(‘STRING’)  
+Example:     SELECT LOWER(‘SPRING’)
+                      FROM DUAL;					O/P: spring
+
+5.INITCAP(  ): " It is used to convert a given string to initial capital letter 
+case.” 
+SYNTAX: INITCAP(‘STRING’)  
+Example:     SELECT INITCAP(‘moon’)
+                      FROM DUAL;					O/P: Moon
+
+6.REVERSE( ): “It is used to reverse the given string”
+
+SYNTAX: REVERSE (‘STRING’)  
+Example:     SELECT REVERSE(‘moon’)
+                      FROM DUAL;					O/P: noom
+7. SUBSTR: "It is used to extract a part of string from the given Original string”
+           SYNTAX: SUBSTR ('Original String', Position, [Length])
+
+NOTE: Length is optional, if length is not mentioned then compiler will 
+  Consider the complete string.
+
+Example: 	SELECT SUBSTR (‘MALAYALAM’, 3,2) 
+                	FROM DUAL;
+Q. WAQTD NAMES OF THE EMPLOYEE WHOSE NAMES STARTS 
+       WITH CHARACTER ‘A’.
+SELECT  ENAME 
+FROM EMP
+WHERE SUBSTR (ENAME,1,1) = ‘A’;
+
+Q. WAQTD NAMES OF THE EMPLOYEE WHOSE NAMES ENDS WITH   
+                      CHARACTER  ‘R’.
+SELECT ENAME 
+FROM EMP
+WHERE SUBSTR (ENAME, -1, 1) = ‘R’;
+
+8.INSTR ( ):  "it is used to obtain the position of a string which is present in 
+the original string. if that string is present, it returns the position else it returns zero.”
+ SYNTAX: INSTR('ORIGINAL_STRING', 'STRING' , POSITION,                   
+                        [OCCURANCE])
+NOTE: 
+if occurrence is not Mentioned then , the default value of Occurrence is 1.
+
+B	A	N	A	N	A
+1	2	3	4	5	6
+Example:
+
+
+Example : INSTR ( 'BANANA' , 'A' , 1 , 1 )	Pos:2
+Example : INSTR ( 'BANANA' , 'A' , 2 , 1 )	Pos:2
+Example : INSTR ( 'BANANA' , 'A' , 1 , 2 )	Pos: 4
+Example : INSTR ( 'BANANA' , 'A' , 1 , 3 )	Pos:6
+Example : INSTR ( 'BANANA' , 'A' , 1 , 4 )	Pos:0
+Example : INSTR ( 'BANANA' , 'A' , 4 , 2 )	Pos:6
+             Example : INSTR ( 'BANANA' , 'A' , 2 )	Pos:2
+Example : INSTR ( 'BANANA' , 'N' , 2 , 1)	Pos:3
+Example : INSTR ( 'BANANA' , 'O' , 1 ,1 )	Pos:0
+    Example : INSTR ( 'BANANA' , 'NA' , 2 , 2 )	POS:5
+Example : INSTR ( 'BANANA' , 'A' , 3 , 3 )	POS:0
+      Example : INSTR ( 'BANANA' , 'ANA' , 1 , 2 )	POS:4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q. WAQTD NAMES OF THE EMPLOYEE WHO’S NAMES STRATS WITH CHARACTER A.
+SELECT ENAME FROM EMP
+WHERE INSTR (ENAME, ‘A’, 1, 1) = 1;
+
+Q. WAQTD NAMES OF THE EMPLOYEE WHO IS HAVING 3RD CHARACTER A IN THEIR NAMES.
+SELECT ENAME FROM EMP
+WHERE INSTR (ENAME, ‘A’, 3, 1) > 1;
+
+
+
+9.REPLACE ( ) : "It is used to replace a string with another string in
+                            The original string.’’ 
+
+SYNTAX: REPLACE ('Original_String', 'string', ['new_String'] )
+
+Example :	REPLACE ( 'BANANA' , 'A' , 'C' )	BCNCNC
+Example :	REPLACE ( 'BANANA' , 'N' , 'ABC' )	BAABCAABCA
+Example :	REPLACE ( 'OPPO' , 'OPPO' , 'SAMSUNG' )	SAMSUNG
+Example :	REPLACE ( 'BANANA' , 'A' )	BNN
+Example :	REPLACE ( 'ENGINEERING' , 'E' )	NGINRING
+Example :	REPLACE ( 'ENGINEERING' , 'E' , '123' )	123NGIN123123RIN G
+NOTE : if the third argument is not mentioned the default Value of it is Null.
+
+Q. WAQTD the number of times char 'A' is present in BANANA !!! SELECT LENGTH('BANANA') - LENGTH(REAPLCE('BANANA','A')) FROM DUAL;	
+
+Q. WAQTD DETAILS OF THE EMPLOYEE WHO’S NAMES HAVING EXACTLY 2 TIMES CHARACTER A IN THEIR NAME.
+SELECT * 
+FROM EMP
+WHERE (LENGTH (ENAME)–LENGTH (REPLACE(ENAME, ‘A’)))=2;
+
+10.MOD( ) : "It is used to obtain modulus/remainder of the given number "
+		             SYNTAX:   MOD ( m , n )
+Example:	
+SELECT MOD (5,2 )
+FROM DUAL;
+
+
+
+Q.WAQTD ENAMES OF THE EMPLOYEES WHO EARN SALARY IN MULTIPLES OF 3
+SELECT ENAME 
+FROM EMP
+WHERE MOD(SAL,3)=0;
+Q.WAQTD DETAILS OF THE EMPLOYEE WHO HAVE ODD EID SELECT *
+FROM EMP
+WHERE MOD(EMPNO,2)=1;
+Q. WAQTD DETAILS OF THE EMPLOYEE HAVING EVEN DIGIT SALARY.
+SELECT *
+FROM EMP
+WHERE MOD(LENGTH(SAL),2) = 0;
+11.ROUND( ) : This function is used to round of the given number to its nearest 
+Value.
+SYNTAX: ROUND ( Number , [ Scale ] )
+The default value of scale is 0
+
+Example : ROUND ( 5.6 )	6
+  Example : ROUND ( 5.5 )	6
+Example : ROUND ( 5.4 )	5
+Example : ROUND ( 9.9 )	10
+Example : ROUND ( 9.4 )	9
+Example : round(253.5 , 1)	254
+
+
+
+
+
+
+12.TRUNC( ): "It is similar to ROUND() but it always rounds-off the given   
+                        number to the lower value ."
+SYNTAX:TRUNC (NUMBER)
+Example : TRUNC ( 5.6 )	5
+Example : TRUNC ( 5.5 )	5
+Example : TRUNC ( 5.4 )	5
+Example : TRUNC ( 9.9 )	9
+Example : TRUNC ( 9.4 )	9
+Example : TRUNC (8.6 )	8
+
+DATE COMMANDS :
+SYSDATE: " it is used to obtain Todays Date "
+CURRENT_DATE: " it is also used to obtain todays date "
+SYSTIMESTAMP: "It is used to obtain date, time and time zone "
+SQL> SELECT SYSDATE 
+          FROM DUAL;
+
+SQL> SELECT CURRENT_DATE
+          FROM DUAL;
+
+SQL> SELECT SYSTIMESTAMP
+          FROM DUAL;
+
+13.MONTHS_BETWEEN( ): "It is used to Obtain the number of months 
+                         present between the Given two dates. "
+                  SYNTAX: MONTHS_BETWEEN (DATE1, DATE2)
+EX: SELECT TRUNC( MONTHS_BETWEEN( SYSDATE , HIREDATE ) ) || '      
+         Months' FROM EMP;
+
+
+14.LAST_DAY( ): "it is used to Obtain the last day in the particular of the  
+                           given date." 
+                          SYNTAX: LAST_DAY(DATE)
+EX:  SELECT LAST_DAY (SYSDATE) 
+         FROM DUAL;
+
+15. TO_CHAR( ) : "It is used to convert the given date into String format   
+based  on the Model given."
+		SYNTAX : TO_CHAR(DATE,'FROMAT_MODELS')
+Format Models :
+
+•	YEAR : TWENTY TWENTY
+•	YYYY : 2020
+•	YY : 20
+•	MONTH : JULY
+•	MON : JUL
+•	MM : 07
+•	DAY : WEDNESDAY
+•	DY : WED
+•	DD : 08
+•	D : 4 ( day of the week )
+•	HH24 : 17 hours
+•	HH12 : 5 hours
+•	MI : 22 minutes
+•	SS : 53 seconds
+•	'HH12:MI:SS'	: 5 : 22 : 53
+•	'DD-MM-YY'	: 17 - 05 - 20
+•	'MM-DD-YYYY'	: 05 - 17 - 2020
+
+Q. WAQTD DETAILS OF THE EMPLOYEE WHO WAS HIRED ON A SUNDAY. 
+SELECT *
+FROM EMP
+WHERE TO_CHAR (HIREDATE, 'DAY')='SUNDAY';
+
+
+Q. WAQTD DETAILS OF AN EMPLOYEE HIRED ON MONDAY AT 3PM SELECT *
+FROM EMP
+WHERE TO _CHAR(HIREDATE,'DAY') ='MONDAY' AND   
+                 TO_CHAR(HIREDATE,'HH12') =3;
+16.NVL( )  [ NULL VALUE LOGIC ] :" It is used to eliminate the side effects of  
+                                                            using null in arithmetic operations.”
+                  SYNTAX: NVL(ARGUMENT1,ARGUMENT 2)
+
+Argument 1 : Here write any column / exp which can result In null.
+Argument 2 : Here we write a numeric value which will be substituted if argument 1 results in Null , If argument 1 is NOT NULL then the same value will be considered 
+EX:  SELECT ENAME, (SAL+NVL(COMM,0)) AS TOTAL_SAL
+
+         FROM EMP;
+
+ENAME	SAL+NVL(COMM,0)
+A	(500+NVL(100,0)= 500+100=600
+B	(1000+NVL(NULL,0)= 1000+0=1000
+C	(2000+NVL(200,0))= 2000+200=2200
+D	(2000+NVL(NULL,0))=2000+0=2000
+ENAME	SAL	COMM
+A	500	100
+B	1000	NULL
+C	2000	200
+D	2000	NULL
+TOTAL_SAL
+600
+1000
+2200
+2000
+17.ASCII(): “it is used to determine the ascii values for the specific character.”
+		
+                              SYNTAX:  ASCII(STRING)
+
+18.POWER (): “it is used to get the values of a number raised to the power of 
+                              another number.”
+
+		SYNTAX: POWER (A,B)
+A: BASE VALUE
+       B: EXPONENT
+
+
+
+19.SQRT(): “it is used to get the square root of a number.” 
+       
+              SYNTAX:   SQRT(NUMBER)
+
+20.TAN(): “it is used to get the tangent of a number.”
+
+	     SYNTAX:  TAN(NUMBER)
+
+21.SIN(): “it is used to get the sine of a number .”
+	
+	    SYNTAX:  SIN(NUMBER)
+   
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                               CHAPTER – 21
+NORMALISATION
+✓	ATTRIBUTES
+✓	FUNCTIONAL DEPENDENCY
+✓	NORMALIZATION
+
+ATTRIBUTE/PROPERTIES: 
+1.	KEY ATTRIBUTE
+2.	NON KEY ATTRIBUTE
+3.	PRIME KEY ATTRIBUTE
+4.	NON PRIME KEY ATTIBUTE
+5.	COMPOSITE KEY ATTRIBUTE
+6.	SUPER KEY ATTRIBUTE
+7.	FOREIGN KEY ATTRIBUTE
+
+1.KEY ATTRIBUTE: - “An attribute which is used to identify records   
+uniquely from the table known as key attribute.”
+EX: EMP TABLE 
+(EMPNO, PH_NO, MAIL_ID, PANCARD, AADHAR CARD)
+
+2.NON KEY ATTRIBUTE: - “All the attributes other than key attribute are known 
+                                               as non-key attribute.”
+EX: EMP TABLE                                                              (ENAME, SAL, HIREDATE, JOB, COMM, DOB, DOJ)
+3.PRIME KEY ATTRIBUTE: - “Among all key attribute, an attribute is chosen to be main attribute to identify the records uniquely from the table is known as primary key attribute.”
+Ex:  EMP TABLE (EMPNO)
+4.NON PRIME KEY ATTRIBUTE:  “All the key attribute other than 
+                       prime key attribute are known as non-prime key attribute.”
+Ex: EMP TABLE                                                                                                    
+(PH_NO, MAIL_ID, PANCARD, AADHARCARD)
+
+5.COMPOSITE KEY ATTRIBUTE: - “The combination of or more non key attributes, which is used to identify the records uniquely is known as composite key attribute.”
+    Composite key attribute is found whenever there is no key attribute.
+Ex: EMP TABLE 
+(ENAME, SAL, HIREDATE, JOB, COMM, DOB, DOJ)
+COMPOSITE KEY  (ENAME, HIREDATE)
+
+6.SUPER KEY ATTRIBUTE: - “It is set of all key attributes.”
+ Ex:  EMP TABLE                                                                                                   (EMPNO, PH_NO, ADHAR_NO, PAN_NO)
+7.FOREIGN KEY ATTRIBUTE: - “It is an attribute which behaves as an attribute of another table to represent the relationship.”
+		EMP TABLE 		DEPT TABLE
+
+		DEPT NO			DEPT NO
+It will act as a non- key attribute.
+A key attribute which behaves like a non-key attribute in another table such attribute known as foreign key attribute.
+
+
+
+
+FUNCTIONAL DEPENDENCY: - “There exists a dependency such that an attribute in a relation determines another attribute.”
+EX: R (X, Y) 
+X                DETERMINANT
+KEY ATTRIBUTE                    Y                 DEPENDENT
+X             Y            FUNCTIONAL DEPENDENCY
+ 
+LHS
+TYPES OF FUNCTIONAL DEPENDENCY: 
+1.	TOTAL FUNCTIONAL DEPENDENCY
+2.	PARTIAL FUNCTIONAL DEPENDENCY
+3.	TRANSITIVE FUNCTIONAL DEPENDENCY
+1.TOTAL FUNCTIONAL DEPENDENCY: 
+“If an attribute in a relation determines all the other attribute is known as Total functional dependency.”
+                                                                          OR
+“If all the attribute is dependent on a single attribute, then it is known as TFD.”
+
+Ex:  R1 		 (A, B, C, D)
+
+EMP TABLE 		 (EMPNO, ENAME, SAL, JOB)
+
+KEY ATTRIBUTE
+
+2.PARTIAL FUNCTIONAL DEPENDENCY:
+“There exists a dependency such that a part of composite key
+attribute determines another attribute uniquely is known as partial
+functional dependency.”
+
+Ex:  R1 	(A, B, C, D)
+(A, B)		 (C, D)  	FULL FUNCTIONAL DEPENDENCY
+
+COMPOSITE KEY
+
+TRAINER
+TID	TNAME	COURSE	FEES
+1	ALLEN	SQL	2000
+2	SMITH	JAVA	3000
+3	MILLER	PYTHON	2500
+2	SCOTT	JDBC	4000
+1	KING	HTML	1500
+4	WARD	SQL	2000
+5	ADAMS	JAVA	3000
+6	JAMES	MT	2550
+
+R1 (TID, TNAME, COURSE, FEES)
+COMPOSITE KEY ATTRIBUTE: (TID, COURSE) 		  FEES
+COURSE 		 FEES 	 PARTIAL FUNCTIONAL DEPENDENCY
+3. TRANSITIVE FUNCTIONAL DEPENDENCY: “There exists a dependency such that a non-key attribute is determined by another non-key attribute which is intern dependent by a key attribute.”
+CID	CNAME	PINCODE	CITY
+1	ALLEN	560019	BANGLORE
+2	SMITH	585128	MYSORE
+3	MILLER	560019	BANGLORE
+4	SCOTT	421421	PUNE
+5	KING	585125	MYSORE
+					CUSTOMER
+
+
+
+
+
+
+
+CID		CNAME
+		PINCODE		CITY 
+EX:  CUSTOMER (CID, CNAME, PINCODE, CITY)
+CID         KEY ATTRIBUTE  &   PINCODE 	NON KEY ATTRIBUTE
+NORMALIZATION: - “The process of converting a large table into a smaller table, in order to remove the redundancies & anomalies by identifying their functional dependencies is known as normalization.”
+REDUNDANCY: - The repetition of unwanted values  is known redundancy. ANOMALIES: - The side effect occurs due to DML operations.
+
+LEVELS OF NORMAL FORM: 
+FIRST NORMAL FORM (1NF)
+SECOND NORMAL FORM (2 NF)
+THIRD NORMAL FORM (3 NF)
+BOYCE – CODD NORMAL FORM (BCNF) OR (3.5 NF)
+
+NOTE: If any table is reduced to 3NF, then that table is said to be Normalized.
+
+What is Normal Form ?
+A table without redundancies and anomalies are said to be in Normal Form.
+
+FIRST NORMAL FORM (1NF): 
+•	No duplicate records
+•	Multivalued data should not be present
+
+TRAINER
+TID	TNAME	COURSE
+1	ALLEN	SQL,HTML
+2	SMITH	JAVA,JDBC
+3	MILLER	PYTHON
+4	SCOTT	SQL
+5	KING	JAVA
+6	WARD	ML
+
+
+
+
+
+
+
+
+				       TRAINER
+TID	TNAME	COURSE
+1	ALLEN	SQL
+1	ALLEN	HTML
+2	SMITH	JAVA
+2	SMITH	JDBC
+3	MILLER	PYTHON
+4	SCOTT	SQL
+5	KING	JAVA
+6	WARD	ML
+		
+
+
+
+
+
+
+
+
+TID	TNAME	C1 SQL	C2 HTML	C3 JAVA	C4 JDBC	C5 PYTHON	C6 MT
+1	ALLEN	SQL	HTML	-	-	-	-
+2	SMITH	-	-	JAVA	JDBC	-	-
+3	MILLER	-	-	-	-	PYTHON	-
+4	SCOTT	SQL	-	-	-	-	-
+5	KING	-	-	JAVA	-	-	-
+6	WARD	-	-	-	-	-	ML
+
+
+
+
+
+
+
+
+2. SECOND NORMAL FORM (2NF): 
+•	Table should be in 1NF
+•	Table should not have partial functional dependency.
+
+       TRAINER
+TID	TNAME	COURSE	FEES
+1	ALLEN	SQL	2000
+2	SMITH	JAVA	3000
+3	MILLER	PYTHON	2500
+2	SCOTT	JDBC	4000
+1	KING	HTML	1500
+4	WARD	SQL	2000
+5	ADAMS	JAVA	3000
+6	JAMES	ML	2550
+
+
+
+
+
+
+
+
+
+COMPOSITE KEY ATTRIBUTE:  (TID, COURSE)  		FEES
+COURSE 		   FEES 	 PARTIAL FUNCTIONAL DEPENDENCY
+TID	TNAME	COURSE
+1	ALLEN	SQL
+2	SMITH	JAVA
+3	MILLER	PYTHON
+2	SCOTT	JDBC
+1	KING	HTML
+4	WARD	SQL
+5	ADAMS	JAVA
+6	JAMES	ML
+COURSE	FEES
+SQL	2000
+JAVA	3000
+PYTHON	2500
+JDBC	4000
+HTML	1500
+ML	2550
+					
+
+
+
+
+
+
+
+
+
+
+
+3. THIRD NORMAL FORM (3NF): 
+•	Table should be in 2NF
+•	Table should not have Transitive functional dependency.
+Ex: CUSTOMER
+	
+            CID	       CNAME	     PINCODE	          CITY
+1	ALLEN	560019	BANGALORE
+2	SMITH	585128	MYSORE
+3	MILLER	560019	BANGALORE
+4	SCOTT	421421	PUNE
+5	KING	585128	MYSORE
+
+CID 		CNAME
+		PINCODE		CITY
+
+EX: CUSTOMER (CID, CNAME, PINCODE, CITY)
+
+		KEY  ATTRIBUTE	NON KEY ATTRIBUTE
+     PINCODE	          CITY
+560019	BANGALORE
+585128	MYSORE
+421421	PUNE
+            CID	       CNAME	     PINCODE
+1	ALLEN	560019
+ 2	SMITH	585128
+3	MILLER	560019
+4	SCOTT	421421
+5	KING	585128
+										
+
+
+
+
+
